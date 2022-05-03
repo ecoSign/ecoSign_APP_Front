@@ -38,11 +38,4 @@
 - **comment**:필요한 주석 추가 및 변경
 
 ### Sample
-- feat(member): add the, apply(), implement(구현()  -> feat(대상)
-- fix(member): change, improve
-- refactor(member): modify
-- style($location): add couple of missing semi colons
-- docs
-- test
-- chore
--> git commit -m "feat(user): mypage ui"
+-> git commit -m "feat user myPage ui"
