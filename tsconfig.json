@@ -47,7 +47,8 @@
     // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
     "skipLibCheck": true,                     /* Skip type checking of declaration files. */
     "resolveJsonModule": true,       /* Allows importing modules with a ‘.json’ extension, which is a common practice in node projects. */
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+
     /* Source Map Options */
     // "sourceRoot": "./",                    /* Specify the location where debugger should locate TypeScript files instead of source locations. */
     // "mapRoot": "./",                       /* Specify the location where debugger should locate map files instead of generated locations. */
@@ -57,6 +58,11 @@
     /* Experimental Options */
     // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@asset/*": ["asset/*"]
+    }
   },
   "include": ["styled.d.ts","./src/**/*"],
   "exclude": [
