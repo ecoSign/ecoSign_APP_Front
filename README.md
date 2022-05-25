@@ -21,6 +21,9 @@
 +-- ...
 ```
 
+### Theme 관련
+- ThemeProvider.tsx, ThemeType.ts만 수정
+
 ### Commit Convention
 - **feat**: 새로운 기능을 추가
 - **fix**: 버그 수정
@@ -37,6 +40,7 @@
 - **test**: 테스팅 관련
 - **comment**:필요한 주석 추가 및 변경
 
+
 ### Sample
 - feat(member): add the, apply(), implement(구현()  -> feat(대상)
 - fix(member): change, improve
@@ -46,3 +50,5 @@
 - test
 - chore
 -> git commit -m "feat(user): mypage ui"
+
+
