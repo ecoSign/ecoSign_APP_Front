@@ -8,6 +8,7 @@ import { ThemeType } from '../theme/ThemeType';
 const TEST = () => {
     const theme = useTheme();
     const style = useThemedStyles(styles);
+
     return (
         <View style={style.body}>
             <Text style={style.title}>Home Screen</Text>

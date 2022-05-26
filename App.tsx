@@ -7,7 +7,7 @@
  *
  * @format
  */
-import React from 'react';
+import * as React from 'react';
 import {
     SafeAreaView,
     ScrollView,
@@ -22,6 +22,9 @@ import { ThemeProvider } from 'styled-components';
 import { NavigationContainer } from '@react-navigation/native';
 import { colors } from './src/styles/color';
 import { typography } from './src/styles/typography';
+import { persistor, store } from './src/redux/store';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const App = () => {
     const isDarkMode = useColorScheme() === 'dark';
@@ -38,29 +41,33 @@ const App = () => {
     };
 
     return (
-        <QueryClientProvider client={queryClient}>
-            <ThemeProviderSheet>
-                <ThemeProvider theme={theme}>
-                    <NavigationContainer>
-                        <SafeAreaView style={backgroundStyle}>
-                            <StatusBar
-                                barStyle={
-                                    isDarkMode
-                                        ? 'light-content'
-                                        : 'dark-content'
-                                }
-                            />
-                            <ScrollView
-                                contentInsetAdjustmentBehavior='automatic'
-                                style={backgroundStyle}
-                            >
-                                <TEST />
-                            </ScrollView>
-                        </SafeAreaView>
-                    </NavigationContainer>
-                </ThemeProvider>
-            </ThemeProviderSheet>
-        </QueryClientProvider>
+        <Provider store={store}>
+            <PersistGate persistor={persistor}>
+                <QueryClientProvider client={queryClient}>
+                    <ThemeProviderSheet>
+                        <ThemeProvider theme={theme}>
+                            <NavigationContainer>
+                                <SafeAreaView style={backgroundStyle}>
+                                    <StatusBar
+                                        barStyle={
+                                            isDarkMode
+                                                ? 'light-content'
+                                                : 'dark-content'
+                                        }
+                                    />
+                                    <ScrollView
+                                        contentInsetAdjustmentBehavior='automatic'
+                                        style={backgroundStyle}
+                                    >
+                                        <TEST />
+                                    </ScrollView>
+                                </SafeAreaView>
+                            </NavigationContainer>
+                        </ThemeProvider>
+                    </ThemeProviderSheet>
+                </QueryClientProvider>
+            </PersistGate>
+        </Provider>
     );
 };
 
