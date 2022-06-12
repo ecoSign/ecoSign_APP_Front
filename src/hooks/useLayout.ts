@@ -1,5 +1,9 @@
-import { LayoutChangeEvent, LayoutRectangle } from 'react-native';
-import { useState, useCallback } from 'react';
+import { LayoutChangeEvent, LayoutRectangle, Text } from 'react-native';
+import React, { useState, useCallback } from 'react';
+
+// 해당 뷰의 위치 및 크기를 가져올 수있다
+//        <View style={style.body} onLayout={setLayout}>
+// <Text>lay:{JSON.stringify(layout, null)}</Text>
 
 export const useLayout = (): [
     LayoutRectangle,

@@ -58,14 +58,24 @@
     /* Experimental Options */
     // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@asset/*": ["asset/*"]
+      "@/*": ["./*"],
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@layout/*": ["layout/*"],
+      "@navigation/*": ["navigation/*"],
+      "@redux/*": ["/*"],
+      "@styles/*": ["styles/*"],
+      "@theme/*": ["theme/*"],
+      "@utils/*": ["utils/*"],
     }
-  },
+},
   "include": ["styled.d.ts","./src/**/*"],
   "exclude": [
-    "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
   ]
 }

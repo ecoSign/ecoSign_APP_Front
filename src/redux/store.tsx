@@ -29,10 +29,10 @@ let middlewares = getDefaultMiddleware({
     },
 });
 
-// if (process.env.NODE_DEV !== 'production') {
-//     const createDebugger = require('redux-flipper').default;
-//     middlewares.push(createDebugger());
-// }
+if (__DEV__) {
+    const createDebugger = require('redux-flipper').default;
+    middlewares.push(createDebugger());
+}
 
 export const store = configureStore({
     reducer: persistedReducer,

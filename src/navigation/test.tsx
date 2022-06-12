@@ -1,18 +1,37 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import useTheme from '../theme/useTheme';
 import useThemedStyles from '../theme/useThemedStyles';
 import styled from 'styled-components/native';
-import { ThemeType } from '../theme/ThemeType';
+import { useLayout } from '@hooks/useLayout';
+import { ThemeType } from '@theme/ThemeType';
+import RowContainer from '@components/RowContainer';
+import { useAsync } from '@hooks/useAsync';
+import axios from 'axios';
 
 const TEST = () => {
     const theme = useTheme();
     const style = useThemedStyles(styles);
+    const [layout, setLayout] = useLayout();
+    const [post, setPosts] = useState([]);
+
+    const [error, resetError] = useAsync(async () => {
+        setPosts([]);
+        resetError();
+        const posts = await axios.get('https://api.coinpaprika.co m/v1/coins');
+        setPosts(posts?.data?.slice(0, 10));
+    });
 
     return (
-        <View style={style.body}>
+        <View style={style.body} onLayout={setLayout}>
+            {error && <Text>err</Text>}
+            <FlatList
+                data={post}
+                renderItem={({ item }) => <Text>{item?.name}</Text>}
+            />
+
             <Text style={style.title}>Home Screen</Text>
-            <Text style={style.text}>
+            <Text style={style.text} onLayout={setLayout}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                 vitae lorem enim. Etiam accumsan nibh eu laoreet sollicitudin.
                 Proin ultricies, metus nec auctor ultricies, dui metus vulputate
@@ -34,7 +53,6 @@ const Container = styled.View`
 const styles = (theme: ThemeType) =>
     StyleSheet.create({
         body: {
-            flex: 1,
             backgroundColor: theme.colors.BACKGROUND,
             justifyContent: 'space-evenly',
             alignItems: 'center',
