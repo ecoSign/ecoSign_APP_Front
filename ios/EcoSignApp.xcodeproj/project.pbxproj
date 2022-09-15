@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* EcoSignAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* EcoSignAppTests.m */; };
+		0B44EBFE28D30DEE00ACA4B0 /* GmarketSansTTFBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B44EBFB28D30DED00ACA4B0 /* GmarketSansTTFBold.ttf */; };
+		0B44EBFF28D30DEE00ACA4B0 /* GmarketSansTTFBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B44EBFB28D30DED00ACA4B0 /* GmarketSansTTFBold.ttf */; };
+		0B44EC0028D30DEE00ACA4B0 /* GmarketSansTTFLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B44EBFC28D30DEE00ACA4B0 /* GmarketSansTTFLight.ttf */; };
+		0B44EC0128D30DEE00ACA4B0 /* GmarketSansTTFLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B44EBFC28D30DEE00ACA4B0 /* GmarketSansTTFLight.ttf */; };
+		0B44EC0228D30DEE00ACA4B0 /* GmarketSansTTFMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B44EBFD28D30DEE00ACA4B0 /* GmarketSansTTFMedium.ttf */; };
+		0B44EC0328D30DEE00ACA4B0 /* GmarketSansTTFMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B44EBFD28D30DEE00ACA4B0 /* GmarketSansTTFMedium.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-EcoSignApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-EcoSignApp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -46,6 +52,9 @@
 		0B44EBF228D2FB6100ACA4B0 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		0B44EBF328D2FB6100ACA4B0 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		0B44EBF428D2FB6100ACA4B0 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		0B44EBFB28D30DED00ACA4B0 /* GmarketSansTTFBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansTTFBold.ttf; path = ../../../Downloads/GmarketSansTTF/GmarketSansTTFBold.ttf; sourceTree = "<group>"; };
+		0B44EBFC28D30DEE00ACA4B0 /* GmarketSansTTFLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansTTFLight.ttf; path = ../../../Downloads/GmarketSansTTF/GmarketSansTTFLight.ttf; sourceTree = "<group>"; };
+		0B44EBFD28D30DEE00ACA4B0 /* GmarketSansTTFMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansTTFMedium.ttf; path = ../../../Downloads/GmarketSansTTF/GmarketSansTTFMedium.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* EcoSignApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoSignApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = EcoSignApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = EcoSignApp/AppDelegate.mm; sourceTree = "<group>"; };
@@ -102,6 +111,9 @@
 		0B44EBE428D2FB1D00ACA4B0 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				0B44EBFB28D30DED00ACA4B0 /* GmarketSansTTFBold.ttf */,
+				0B44EBFC28D30DEE00ACA4B0 /* GmarketSansTTFLight.ttf */,
+				0B44EBFD28D30DEE00ACA4B0 /* GmarketSansTTFMedium.ttf */,
 				0B44EBE828D2FB6100ACA4B0 /* AntDesign.ttf */,
 				0B44EBF028D2FB6100ACA4B0 /* Entypo.ttf */,
 				0B44EBF128D2FB6100ACA4B0 /* EvilIcons.ttf */,
@@ -275,6 +287,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B44EBFF28D30DEE00ACA4B0 /* GmarketSansTTFBold.ttf in Resources */,
+				0B44EC0128D30DEE00ACA4B0 /* GmarketSansTTFLight.ttf in Resources */,
+				0B44EC0328D30DEE00ACA4B0 /* GmarketSansTTFMedium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +298,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				0B44EC0028D30DEE00ACA4B0 /* GmarketSansTTFLight.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				0B44EBFE28D30DEE00ACA4B0 /* GmarketSansTTFBold.ttf in Resources */,
+				0B44EC0228D30DEE00ACA4B0 /* GmarketSansTTFMedium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

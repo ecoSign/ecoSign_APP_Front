@@ -8,6 +8,7 @@ import { ThemeType } from '@theme/ThemeType';
 import { useAsync } from '@hooks/useAsync';
 import axios from 'axios';
 import HeaderComponent from '@components/HeaderComponent';
+import Font from '@styles/Font';
 
 const TEST = () => {
     const theme = useTheme();
@@ -25,7 +26,12 @@ const TEST = () => {
     return (
         <View style={style.body} onLayout={setLayout}>
             <HeaderComponent />
-
+            <Text style={{ fontFamily: Font.GmarketSansTTFBold }}>
+                21341234
+            </Text>
+            <Text style={{ fontFamily: Font.GmarketSansTTFLight }}>
+                21341234
+            </Text>
             {error && <Text>err</Text>}
             {/*<FlatList*/}
             {/*    data={post}*/}
