@@ -25,6 +25,7 @@ const TEST = () => {
     return (
         <View style={style.body} onLayout={setLayout}>
             <HeaderComponent />
+
             {error && <Text>err</Text>}
             {/*<FlatList*/}
             {/*    data={post}*/}
