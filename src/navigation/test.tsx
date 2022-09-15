@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import useTheme from '../theme/useTheme';
-import useThemedStyles from '../theme/useThemedStyles';
+import useThemedStyles from '@theme/useThemedStyles';
 import styled from 'styled-components/native';
 import { useLayout } from '@hooks/useLayout';
 import { ThemeType } from '@theme/ThemeType';
-import RowContainer from '@components/RowContainer';
 import { useAsync } from '@hooks/useAsync';
 import axios from 'axios';
+import HeaderComponent from '@components/HeaderComponent';
 
 const TEST = () => {
     const theme = useTheme();
@@ -24,11 +24,12 @@ const TEST = () => {
 
     return (
         <View style={style.body} onLayout={setLayout}>
+            <HeaderComponent />
             {error && <Text>err</Text>}
-            <FlatList
-                data={post}
-                renderItem={({ item }) => <Text>{item?.name}</Text>}
-            />
+            {/*<FlatList*/}
+            {/*    data={post}*/}
+            {/*    renderItem={({ item }) => <Text>{item?.name}</Text>}*/}
+            {/*/>*/}
 
             <Text style={style.title}>Home Screen</Text>
             <Text style={style.text} onLayout={setLayout}>
