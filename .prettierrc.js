@@ -8,12 +8,8 @@ module.exports = {
     singleQuote: true,
     semi: true,
     useTabs: false,
-    tabWidth: 4,
+    tabWidth: 2,
     trailingComma: 'all',
     printWidth: 80,
-    jsxSingleQuote: true,
     arrowParens: 'always',
-    endOfLine: 'lf',
-    bracketSpacing: true,
-    jsxBracketSameLine: false,
 };

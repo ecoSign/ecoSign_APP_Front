@@ -9,15 +9,15 @@
  */
 import * as React from 'react';
 import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    useColorScheme,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  useColorScheme,
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import ThemeProviderSheet from './src/theme/ThemeProvider';
-import TEST from './src/navigation/test';
+import TEST from './src/navigations/test';
 import { ThemeProvider } from 'styled-components';
 import { NavigationContainer } from '@react-navigation/native';
 import { colors } from './src/styles/color';
@@ -27,48 +27,44 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const App = () => {
-    const isDarkMode = useColorScheme() === 'dark';
-    const backgroundStyle = {
-        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
-    const queryClient = new QueryClient({
-        defaultOptions: { queries: { retry: 2 } },
-        //   쿼리 함수 실패시 최대 연속 재시도 횟수
-    });
-    const theme = {
-        colors: !isDarkMode ? colors.light : colors.dark,
-        typography,
-    };
+  const isDarkMode = useColorScheme() === 'dark';
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: 2 } },
+    //   쿼리 함수 실패시 최대 연속 재시도 횟수
+  });
+  const theme = {
+    colors: !isDarkMode ? colors.light : colors.dark,
+    typography,
+  };
 
-    return (
-        <Provider store={store}>
-            <PersistGate persistor={persistor}>
-                <QueryClientProvider client={queryClient}>
-                    <ThemeProviderSheet>
-                        <ThemeProvider theme={theme}>
-                            <NavigationContainer>
-                                <SafeAreaView style={backgroundStyle}>
-                                    <StatusBar
-                                        barStyle={
-                                            isDarkMode
-                                                ? 'light-content'
-                                                : 'dark-content'
-                                        }
-                                    />
-                                    <ScrollView
-                                        contentInsetAdjustmentBehavior='automatic'
-                                        style={backgroundStyle}
-                                    >
-                                        <TEST />
-                                    </ScrollView>
-                                </SafeAreaView>
-                            </NavigationContainer>
-                        </ThemeProvider>
-                    </ThemeProviderSheet>
-                </QueryClientProvider>
-            </PersistGate>
-        </Provider>
-    );
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProviderSheet>
+            <ThemeProvider theme={theme}>
+              <NavigationContainer>
+                <SafeAreaView style={backgroundStyle}>
+                  <StatusBar
+                    barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+                  />
+                  <ScrollView
+                    contentInsetAdjustmentBehavior="automatic"
+                    style={backgroundStyle}
+                  >
+                    <TEST />
+                  </ScrollView>
+                </SafeAreaView>
+              </NavigationContainer>
+            </ThemeProvider>
+          </ThemeProviderSheet>
+        </QueryClientProvider>
+      </PersistGate>
+    </Provider>
+  );
 };
 
 export default App;
