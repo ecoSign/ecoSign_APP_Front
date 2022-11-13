@@ -1,19 +1,33 @@
-import { TouchableOpacity, StyleSheet, View } from 'react-native';
+import React from 'react';
+import {
+  TouchableOpacity,
+  StyleSheet,
+  View,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const BottomGradientButton = ({
+type ButtonProps = {
+  children: JSX.Element | JSX.Element[];
+  outerStyle?: StyleProp<ViewStyle>;
+  innerStyle?: StyleProp<ViewStyle>;
+  onPress?: () => void;
+};
+
+export const GradientButton = ({
   children,
   onPress,
   outerStyle,
   innerStyle,
-}) => {
+}: ButtonProps) => {
   return (
-    <TouchableOpacity style={outerStyle} onPress={onPress}>
+    <TouchableOpacity style={[styles.btn, outerStyle]} onPress={onPress}>
       <LinearGradient
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
-        colors={['#7AE0CC', '#47B1D1']}
-        style={[styles.btn, innerStyle]}
+        colors={['#9cd43f', '#82a306', '#c0e08b']}
+        style={[styles.gradientBtn, innerStyle]}
       >
         <View>{children}</View>
       </LinearGradient>
@@ -23,9 +37,14 @@ const BottomGradientButton = ({
 
 const styles = StyleSheet.create({
   btn: {
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // borderRadius: 15,
-    // paddingVertical: 16,
+    borderWidth: 1,
+    borderRadius: 15,
+    borderColor: '#9cd43f',
+  },
+  gradientBtn: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 14,
+    borderRadius: 15,
   },
 });

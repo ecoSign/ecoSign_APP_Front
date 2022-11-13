@@ -1,13 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, StyleProp, TextStyle } from 'react-native';
+import Font from '@styles/Font';
 
 type LabelProps = {
   text: string | number;
   style?: StyleProp<TextStyle>;
+  onPress?: () => void;
 };
 
-export const GMarketNormalTxt = ({ style, text }: LabelProps) => {
-  return <Text style={[styles.gMarKet14, style]}>{text}</Text>;
+export const GMarketNormalTxt = ({ style, text, onPress }: LabelProps) => {
+  return (
+    <Text style={[styles.gMarKet14, style]} onPress={onPress}>
+      {text}
+    </Text>
+  );
 };
 
 export const NoTo16NormalTxt = ({ style, text }: LabelProps) => {
@@ -22,6 +28,7 @@ const styles = StyleSheet.create({
   gMarKet14: {
     fontSize: 14,
     lineHeight: 21,
+    fontFamily: Font.GmarketSansTTFMedium,
   },
   noTol16: {
     fontSize: 16,
