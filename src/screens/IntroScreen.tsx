@@ -1,14 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { FlexContainer } from '@components/containers/FlexContainer';
 
 const IntroScreen = () => {
   return (
-    <>
-      <FlexContainer style={styles.container}>
-        <Text>intro</Text>
-      </FlexContainer>
-    </>
+    <FlexContainer style={styles.container}>
+      <Text>intro</Text>
+    </FlexContainer>
   );
 };
 

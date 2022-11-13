@@ -13,11 +13,11 @@ import {
   ScrollView,
   StatusBar,
   useColorScheme,
+  StyleSheet,
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import ThemeProviderSheet from './src/theme/ThemeProvider';
-import TEST from './src/navigations/test';
 import { ThemeProvider } from 'styled-components';
 import { NavigationContainer } from '@react-navigation/native';
 import { colors } from './src/styles/color';
@@ -25,6 +25,7 @@ import { typography } from './src/styles/typography';
 import { persistor, store } from './src/redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import RootStack from './src/navigations/RootStack';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -47,16 +48,17 @@ const App = () => {
           <ThemeProviderSheet>
             <ThemeProvider theme={theme}>
               <NavigationContainer>
-                <SafeAreaView style={backgroundStyle}>
+                <SafeAreaView style={[styles.container, backgroundStyle]}>
                   <StatusBar
                     barStyle={isDarkMode ? 'light-content' : 'dark-content'}
                   />
-                  <ScrollView
-                    contentInsetAdjustmentBehavior="automatic"
-                    style={backgroundStyle}
-                  >
-                    <TEST />
-                  </ScrollView>
+                  {/*<ScrollView*/}
+                  {/*  contentInsetAdjustmentBehavior="automatic"*/}
+                  {/*  style={[backgroundStyle]}*/}
+                  {/*>*/}
+                  <RootStack />
+                  {/*<TEST />*/}
+                  {/*</ScrollView>*/}
                 </SafeAreaView>
               </NavigationContainer>
             </ThemeProvider>
@@ -68,3 +70,10 @@ const App = () => {
 };
 
 export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+});
