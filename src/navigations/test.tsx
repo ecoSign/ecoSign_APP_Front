@@ -26,7 +26,7 @@ const TEST = () => {
   return (
     <View style={style.body} onLayout={setLayout}>
       <HeaderComponent />
-      <Text style={{ fontFamily: Font.GmarketSansTTFBold }}>21341234</Text>
+      <Text style={{ fontFamily: Font.GmarketSansTTFBold }}>213412234</Text>
       <Text style={{ fontFamily: Font.GmarketSansTTFLight }}>21341234</Text>
       {error && <Text>err</Text>}
       {/*<FlatList*/}
