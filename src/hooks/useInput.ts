@@ -4,7 +4,7 @@ const useInput = (initialValue = '') => {
   const [value, setValue] = useState(initialValue);
 
   const handler = useCallback((e) => {
-    setValue(e);
+    setValue(ee);
   }, []);
 
   return [value, handler, setValue];
