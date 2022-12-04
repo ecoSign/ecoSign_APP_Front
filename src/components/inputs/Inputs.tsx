@@ -28,26 +28,25 @@ export function UserInput({
       style={{
         ...styles.container,
         borderBottomColor: isFocused ? '#212121' : '#eee',
+        height: 54,
       }}
     >
-      <RowContainer>
-        {leftIcon && <Image source={leftIcon} style={styles.leftIcon} />}
-        <TextInput
-          ref={inputRef}
-          value={value}
-          onChangeText={onChangeText}
-          style={[styles.input, inputStyle]}
-          placeholder={placeholder}
-          placeholderTextColor="#BDBDBD"
-          autoCapitalize={autoCapitalize}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          keyboardType={keyboardType}
-          onSubmitEditing={onSubmitEditing}
-          autoCorrect={autoCorrect}
-          secureTextEntry={secureTextEntry}
-        />
-      </RowContainer>
+      {leftIcon && <Image source={leftIcon} style={styles.leftIcon} />}
+      <TextInput
+        ref={inputRef}
+        value={value}
+        onChangeText={onChangeText}
+        style={[styles.input, inputStyle]}
+        placeholder={placeholder}
+        placeholderTextColor="#BDBDBD"
+        autoCapitalize={autoCapitalize}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        keyboardType={keyboardType}
+        onSubmitEditing={onSubmitEditing}
+        autoCorrect={autoCorrect}
+        secureTextEntry={secureTextEntry}
+      />
       {rightIcon && <Image source={rightIcon} style={styles.rightIcon} />}
     </RowContainer>
   );
