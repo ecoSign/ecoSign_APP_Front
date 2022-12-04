@@ -1,8 +1,10 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
+
+import AuthStack from '@navigations/AuthStack';
+import SplashScreen from '@screens/SplashScreen';
+
 import MainTab from './MainTab';
-import AuthStack from '@/navigations/AuthStack';
-import SplashScreen from '@/screens/SplashScreen';
 
 const Stack = createNativeStackNavigator();
 

@@ -12,30 +12,39 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  useColorScheme,
   StyleSheet,
+  useColorScheme,
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import ThemeProviderSheet from './src/theme/ThemeProvider';
-import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
+
 import { NavigationContainer } from '@react-navigation/native';
+import { PersistGate } from 'redux-persist/integration/react';
+import { ThemeProvider } from 'styled-components';
+
+import RootStack from './src/navigations/RootStack';
+import { persistor, store } from './src/redux/store';
 import { colors } from './src/styles/color';
 import { typography } from './src/styles/typography';
-import { persistor, store } from './src/redux/store';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import RootStack from './src/navigations/RootStack';
+import ThemeProviderSheet from './src/theme/ThemeProvider';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
   const queryClient = new QueryClient({
-    defaultOptions: { queries: { retry: 2 } },
-    //   쿼리 함수 실패시 최대 연속 재시도 횟수
+    defaultOptions: {
+      queries: {
+        staleTime: 1000 * 60 * 60,
+        refetchInterval: 1000 * 60 * 20,
+        retry: 2,
+      },
+    },
   });
+
   const theme = {
     colors: !isDarkMode ? colors.light : colors.dark,
     typography,

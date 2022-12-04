@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, TextInput, View } from 'react-native';
+
 import RowContainer from '@components/containers/RowContainer';
+import { UserInputType } from '@components/inputs/type';
+import useToggle from '@hooks/useToggle';
 
 export const SearchInput = () => {};
 
@@ -9,14 +12,16 @@ export const UserInput = ({
   onChangeText,
   placeholder,
   inputStyle,
-  leftIcon,
-  rightIcon,
   autoCapitalize = 'none',
   keyboardType,
   onSubmitEditing,
+  leftIcon,
+  rightIcon,
   inputRef,
-}) => {
-  const [isFocused, setIsFocused] = useState(false);
+  autoCorrect = false,
+  secureTextEntry = false,
+}: UserInputType) => {
+  const [isFocused, toggle, setIsFocused] = useToggle();
 
   return (
     <RowContainer
@@ -39,6 +44,8 @@ export const UserInput = ({
           onBlur={() => setIsFocused(false)}
           keyboardType={keyboardType}
           onSubmitEditing={onSubmitEditing}
+          autoCorrect={autoCorrect}
+          secureTextEntry={secureTextEntry}
         />
       </RowContainer>
       <Image source={rightIcon} style={styles.rightIcon} />

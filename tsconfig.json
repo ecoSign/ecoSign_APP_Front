@@ -64,13 +64,15 @@
       "@api/*": ["api/*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
       "@hooks/*": ["hooks/*"],
       "@layout/*": ["layout/*"],
       "@navigations/*": ["navigations/*"],
       "@redux/*": ["/*"],
+      "@screens/*": ["screens/*"],
       "@styles/*": ["styles/*"],
       "@theme/*": ["theme/*"],
-      "@utils/*": ["utils/*"],
+      "@utils/*": ["utils/*"]
     }
 },
   "include": ["styled.d.ts","./src/**/*"],

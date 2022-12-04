@@ -1,16 +1,24 @@
-import React, { useRef, useState, useCallback } from 'react';
-import { Alert, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { FlexContainer } from '@components/containers/FlexContainer';
-import RowContainer from '@components/containers/RowContainer';
-import { GMarketNormalTxt } from '@components/Labels';
-import { UserInput } from '@components/inputs/Inputs.tsx';
-import useInput from '@hooks/useInput';
-import EcoUButton from '@components/buttons/EcoUButton';
-import Font from '@styles/Font';
+import React, { useCallback, useRef, useState } from 'react';
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
+import { GMarketNormalTxt } from '@components/Labels';
+import EcoUButton from '@components/buttons/EcoUButton';
+import { FlexContainer } from '@components/containers/FlexContainer';
+import RowContainer from '@components/containers/RowContainer';
+import { UserInput } from '@components/inputs/Inputs';
+import useInput from '@hooks/useInput';
+import Font from '@styles/Font';
+
 const IntroScreen = () => {
-  const pwInput = useRef(null);
+  const pwInput = useRef<TextInput>(null);
 
   const [userId, onChangeId, setUserId] = useInput('');
   const [pw, onChangePw, setPw] = useInput('');
@@ -53,7 +61,6 @@ const IntroScreen = () => {
         leftIcon={require('../assets/icons/auth/pw.png')}
         rightIcon={require('../assets/icons/auth/id.png')}
         placeholder="비밀번호"
-        textContentType="password"
         autoCorrect={false}
         secureTextEntry={!isPwVisible}
       />

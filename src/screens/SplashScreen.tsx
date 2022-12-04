@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from '@/constants/auth';
-import { StyleSheet, Image } from 'react-native';
-import { resetNavigation } from '@/utils/navigation';
-import { useNavigation } from '@react-navigation/native';
-import { MainTabNavigationProp } from './types';
+import { Image, StyleSheet } from 'react-native';
+
+import { NoTo16NormalTxt } from '@components/Labels';
 import {
   CenterContainer,
   FlexContainer,
 } from '@components/containers/FlexContainer';
-import { NoTo16NormalTxt } from '@components/Labels';
 import { GradientContainer } from '@components/containers/GradientContainer';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '@constants/auth';
+import { useNavigation } from '@react-navigation/native';
+import { resetNavigation } from '@utils/navigation';
+
+import { MainTabNavigationProp } from './types';
 
 const SplashScreen = () => {
   const navigation = useNavigation<MainTabNavigationProp>();
