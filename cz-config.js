@@ -11,9 +11,8 @@ module.exports = {
     },
     {
       value: '🌞 Setting',
-      name: '🌞 프로젝트 설정 추가 및 변경',
+      name: '🌞 프로젝트 셋팅 및 package.json 수정',
     },
-    { value: '🌙 Install', name: '🌙 패키지 다운' },
     { value: '📝 Docs', name: '📝 문서 관련' },
     {
       value: '💄 Style',
@@ -26,6 +25,10 @@ module.exports = {
     {
       value: '✅ Test',
       name: '✅  테스트 관련',
+    },
+    {
+      value: '📞 Remove',
+      name: '📞  파일 삭제하는 작업만 수행한 경우',
     },
   ],
   allowCustomScopes: false,
