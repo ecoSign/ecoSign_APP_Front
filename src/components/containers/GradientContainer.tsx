@@ -8,11 +8,11 @@ type ContainerProps = {
   innerStyle?: StyleProp<ViewStyle>;
 };
 
-export const GradientContainer = ({
+export function GradientContainer({
   children,
   outerStyle,
   innerStyle,
-}: ContainerProps) => {
+}: ContainerProps) {
   return (
     <LinearGradient
       // start={{ x: 0, y: 0 }}
@@ -23,7 +23,7 @@ export const GradientContainer = ({
       <View style={innerStyle}>{children}</View>
     </LinearGradient>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {

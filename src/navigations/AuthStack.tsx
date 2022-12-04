@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import IntroScreen from '../screens/IntroScreen';
+
 import Touchable from '@components/buttons/Touchable';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import IntroScreen from '../screens/IntroScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,10 +19,10 @@ function AuthStack() {
         headerBackTitleVisible: false,
         headerLeft: () => (
           <Touchable onPress={() => navigation.goBack()}>
-            {/*<Image*/}
-            {/*    source={require('../assets/icons/common/back.png')}*/}
-            {/*    style={styles.backIcon}*/}
-            {/*/>*/}
+            {/* <Image */}
+            {/*    source={require('../assets/icons/common/back.png')} */}
+            {/*    style={styles.backIcon} */}
+            {/* /> */}
           </Touchable>
         ),
       })}

@@ -7,7 +7,7 @@ import useToggle from '@hooks/useToggle';
 
 export const SearchInput = () => {};
 
-export const UserInput = ({
+export function UserInput({
   value,
   onChangeText,
   placeholder,
@@ -20,7 +20,7 @@ export const UserInput = ({
   inputRef,
   autoCorrect = false,
   secureTextEntry = false,
-}: UserInputType) => {
+}: UserInputType) {
   const [isFocused, toggle, setIsFocused] = useToggle();
 
   return (
@@ -31,14 +31,14 @@ export const UserInput = ({
       }}
     >
       <RowContainer>
-        <Image source={leftIcon} style={styles.leftIcon} />
+        {leftIcon && <Image source={leftIcon} style={styles.leftIcon} />}
         <TextInput
           ref={inputRef}
           value={value}
           onChangeText={onChangeText}
           style={[styles.input, inputStyle]}
           placeholder={placeholder}
-          placeholderTextColor={'#BDBDBD'}
+          placeholderTextColor="#BDBDBD"
           autoCapitalize={autoCapitalize}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
@@ -48,10 +48,10 @@ export const UserInput = ({
           secureTextEntry={secureTextEntry}
         />
       </RowContainer>
-      <Image source={rightIcon} style={styles.rightIcon} />
+      {rightIcon && <Image source={rightIcon} style={styles.rightIcon} />}
     </RowContainer>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {

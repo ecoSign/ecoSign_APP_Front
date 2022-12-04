@@ -24,7 +24,7 @@ interface InputType {
 }
 
 interface UserInputType extends InputType {
-  leftIcon: ImageSourcePropType;
-  rightIcon: ImageSourcePropType;
+  leftIcon?: any | undefined;
+  rightIcon?: any | undefined;
   inputRef?: LegacyRef<T> | undefined;
 }

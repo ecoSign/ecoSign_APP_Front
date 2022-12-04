@@ -33,40 +33,40 @@ function MainTab() {
           // ),
         }}
       />
-      {/*<Tab.Screen*/}
-      {/*  name="ChatRooms"*/}
-      {/*  component={ChatRoomsScreen}*/}
-      {/*  options={{*/}
-      {/*    title: '',*/}
-      {/*    tabBarIcon: ({ focused }) => (*/}
-      {/*      <Image*/}
-      {/*        source={*/}
-      {/*          focused*/}
-      {/*            ? require('../assets/icons/mainTab/chat_focus.png')*/}
-      {/*            : require('../assets/icons/mainTab/chat_unFocus.png')*/}
-      {/*        }*/}
-      {/*        style={styles.icon}*/}
-      {/*      />*/}
-      {/*    ),*/}
-      {/*  }}*/}
-      {/*/>*/}
-      {/*<Tab.Screen*/}
-      {/*  name="MyPage"*/}
-      {/*  component={MyPageScreen}*/}
-      {/*  options={{*/}
-      {/*    title: '',*/}
-      {/*    tabBarIcon: ({ focused }) => (*/}
-      {/*      <Image*/}
-      {/*        source={*/}
-      {/*          focused*/}
-      {/*            ? require('../assets/icons/mainTab/myPage_focus.png')*/}
-      {/*            : require('../assets/icons/mainTab/myPage_unFocus.png')*/}
-      {/*        }*/}
-      {/*        style={styles.icon}*/}
-      {/*      />*/}
-      {/*    ),*/}
-      {/*  }}*/}
-      {/*/>*/}
+      {/* <Tab.Screen */}
+      {/*  name="ChatRooms" */}
+      {/*  component={ChatRoomsScreen} */}
+      {/*  options={{ */}
+      {/*    title: '', */}
+      {/*    tabBarIcon: ({ focused }) => ( */}
+      {/*      <Image */}
+      {/*        source={ */}
+      {/*          focused */}
+      {/*            ? require('../assets/icons/mainTab/chat_focus.png') */}
+      {/*            : require('../assets/icons/mainTab/chat_unFocus.png') */}
+      {/*        } */}
+      {/*        style={styles.icon} */}
+      {/*      /> */}
+      {/*    ), */}
+      {/*  }} */}
+      {/* /> */}
+      {/* <Tab.Screen */}
+      {/*  name="MyPage" */}
+      {/*  component={MyPageScreen} */}
+      {/*  options={{ */}
+      {/*    title: '', */}
+      {/*    tabBarIcon: ({ focused }) => ( */}
+      {/*      <Image */}
+      {/*        source={ */}
+      {/*          focused */}
+      {/*            ? require('../assets/icons/mainTab/myPage_focus.png') */}
+      {/*            : require('../assets/icons/mainTab/myPage_unFocus.png') */}
+      {/*        } */}
+      {/*        style={styles.icon} */}
+      {/*      /> */}
+      {/*    ), */}
+      {/*  }} */}
+      {/* /> */}
     </Tab.Navigator>
   );
 }

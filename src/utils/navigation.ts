@@ -10,9 +10,7 @@ export const nestingNavigate = (
   path1: any,
   path2: any,
   params: any,
-) => {
-  return navigation.navigate(path1, { screen: path2, params });
-};
+) => navigation.navigate(path1, { screen: path2, params });
 
 export const resetNavigation = (
   navigation: MainTabNavigationProp,

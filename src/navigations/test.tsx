@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import useTheme from '../theme/useTheme';
-import useThemedStyles from '@theme/useThemedStyles';
-import styled from 'styled-components/native';
-import { useLayout } from '@hooks/useLayout';
-import { ThemeType } from '@theme/ThemeType';
-import { useAsync } from '@hooks/useAsync';
-import axios from 'axios';
-import HeaderComponent from '@components/HeaderComponent';
-import Font from '@styles/Font';
 
-const TEST = () => {
+import HeaderComponent from '@components/HeaderComponent';
+import { useAsync } from '@hooks/useAsync';
+import { useLayout } from '@hooks/useLayout';
+import Font from '@styles/Font';
+import { ThemeType } from '@theme/ThemeType';
+import useThemedStyles from '@theme/useThemedStyles';
+import axios from 'axios';
+import styled from 'styled-components/native';
+
+import useTheme from '../theme/useTheme';
+
+function TEST() {
   const theme = useTheme();
   const style = useThemedStyles(styles);
   const [layout, setLayout] = useLayout();
@@ -29,10 +31,10 @@ const TEST = () => {
       <Text style={{ fontFamily: Font.GmarketSansTTFBold }}>213412234</Text>
       <Text style={{ fontFamily: Font.GmarketSansTTFLight }}>21341234</Text>
       {error && <Text>err</Text>}
-      {/*<FlatList*/}
-      {/*    data={post}*/}
-      {/*    renderItem={({ item }) => <Text>{item?.name}</Text>}*/}
-      {/*/>*/}
+      {/* <FlatList */}
+      {/*    data={post} */}
+      {/*    renderItem={({ item }) => <Text>{item?.name}</Text>} */}
+      {/* /> */}
 
       <Text style={style.title}>Home Screen</Text>
       <Text style={style.text} onLayout={setLayout}>
@@ -48,7 +50,7 @@ const TEST = () => {
       </Container>
     </View>
   );
-};
+}
 
 const Container = styled.View`
   background-color: ${(props) => props.theme.colors.SUCCESS};

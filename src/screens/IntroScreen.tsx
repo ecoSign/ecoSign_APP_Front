@@ -17,7 +17,7 @@ import { UserInput } from '@components/inputs/Inputs';
 import useInput from '@hooks/useInput';
 import Font from '@styles/Font';
 
-const IntroScreen = () => {
+function IntroScreen() {
   const pwInput = useRef<TextInput>(null);
 
   const [userId, onChangeId, setUserId] = useInput('');
@@ -34,11 +34,11 @@ const IntroScreen = () => {
         <Image
           source={require('../assets/images/auth/splash_logo.png')}
           style={styles.logo}
-          resizeMode={'contain'}
+          resizeMode="contain"
         />
       </RowContainer>
       <GMarketNormalTxt
-        text={'당신의 에코유를 들려주세요.'}
+        text="당신의 에코유를 들려주세요."
         style={{
           color: '#616161',
           fontWeight: '300',
@@ -66,7 +66,7 @@ const IntroScreen = () => {
       />
       <TouchableOpacity style={styles.findAccount} onPress={() => null}>
         <GMarketNormalTxt
-          text={'아이디/비밀번호 찾기'}
+          text="아이디/비밀번호 찾기"
           style={{
             fontSize: 12,
             lineHeight: 18,
@@ -74,21 +74,17 @@ const IntroScreen = () => {
             marginRight: 2,
           }}
         />
-        <AntDesign name={'right'} color={'#9E9E9E'} size={10} />
+        <AntDesign name="right" color="#9E9E9E" size={10} />
       </TouchableOpacity>
-      <EcoUButton
-        text={'로그인'}
-        btnStyle={styles.loginBtn}
-        onPress={onLogin}
-      />
-      {/*<GradientButton outerStyle={styles.loginBtn} onPress={onLogin}>*/}
-      {/*  <GMarketNormalTxt text={'로그인'} style={{ color: '#9CCC65' }} />*/}
-      {/*</GradientButton>*/}
+      <EcoUButton text="로그인" btnStyle={styles.loginBtn} onPress={onLogin} />
+      {/* <GradientButton outerStyle={styles.loginBtn} onPress={onLogin}> */}
+      {/*  <GMarketNormalTxt text={'로그인'} style={{ color: '#9CCC65' }} /> */}
+      {/* </GradientButton> */}
 
       <Text style={styles.bottomTxt}>
         아직 회원이 아니시라면?
         <GMarketNormalTxt
-          text={' 회원가입 '}
+          text=" 회원가입 "
           onPress={() => Alert.alert('회원가입하러 간드아~~')}
           style={{ color: '#9CCC65' }}
         />
@@ -96,7 +92,7 @@ const IntroScreen = () => {
       </Text>
     </FlexContainer>
   );
-};
+}
 
 export default IntroScreen;
 

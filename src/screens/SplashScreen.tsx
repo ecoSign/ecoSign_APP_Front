@@ -13,7 +13,7 @@ import { resetNavigation } from '@utils/navigation';
 
 import { MainTabNavigationProp } from './types';
 
-const SplashScreen = () => {
+function SplashScreen() {
   const navigation = useNavigation<MainTabNavigationProp>();
 
   useEffect(() => {
@@ -29,16 +29,13 @@ const SplashScreen = () => {
           <Image
             source={require('../assets/images/auth/splash_logo.png')}
             style={styles.logo}
-            resizeMode={'contain'}
+            resizeMode="contain"
           />
           <NoTo16NormalTxt
-            text={'당신의 일상에 에코를 더하다'}
+            text="당신의 일상에 에코를 더하다"
             style={{ ...styles.title, fontWeight: 'bold' }}
           />
-          <NoTo16NormalTxt
-            text={'오늘도 에코유 하세요!'}
-            style={styles.title}
-          />
+          <NoTo16NormalTxt text="오늘도 에코유 하세요!" style={styles.title} />
         </CenterContainer>
 
         <Image
@@ -49,7 +46,7 @@ const SplashScreen = () => {
       </GradientContainer>
     </FlexContainer>
   );
-};
+}
 
 export default SplashScreen;
 

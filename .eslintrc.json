@@ -1,0 +1,49 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "react-native/react-native": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb/hooks",
+        "prettier",
+        "prettier/react"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-native",
+//        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "no-unused-vars": "off",
+        "import/prefer-default-export": "off",
+        "import/no-unresolved": "off",
+        "no-use-before-define": "off",
+        "react/jsx-no-constructed-context-values": "off",
+        "react/jsx-filename-extension": "off",
+        "import/extensions": "off",
+        "global-require": "off",
+        "consistent-return": "off",
+        "no-param-reassign": "off",
+        "import/no-extraneous-dependencies": "off",
+        "react/no-unstable-nested-components": "off",
+        "no-shadow": "off",
+        "react/require-default-props": "off",
+        "no-undef": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "no-restricted-globals": "off",
+        "radix": "off",
+        "react/no-unused-prop-types": "off"
+    }
+}

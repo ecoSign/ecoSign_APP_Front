@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, StyleProp, TextStyle } from 'react-native';
+import { StyleProp, StyleSheet, Text, TextStyle } from 'react-native';
+
 import Font from '@styles/Font';
 
 type LabelProps = {
@@ -8,21 +9,21 @@ type LabelProps = {
   onPress?: () => void;
 };
 
-export const GMarketNormalTxt = ({ style, text, onPress }: LabelProps) => {
+export function GMarketNormalTxt({ style, text, onPress }: LabelProps) {
   return (
     <Text style={[styles.gMarKet14, style]} onPress={onPress}>
       {text}
     </Text>
   );
-};
+}
 
-export const NoTo16NormalTxt = ({ style, text }: LabelProps) => {
+export function NoTo16NormalTxt({ style, text }: LabelProps) {
   return <Text style={[styles.noTol16, style]}>{text}</Text>;
-};
+}
 
-export const SemiBold20Poppins = ({ style, text }: LabelProps) => {
+export function SemiBold20Poppins({ style, text }: LabelProps) {
   return <Text style={[styles.semiBold20, style]}>{text}</Text>;
-};
+}
 
 const styles = StyleSheet.create({
   gMarKet14: {

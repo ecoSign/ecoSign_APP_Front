@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
+
 import { GMarketNormalTxt } from '@components/Labels';
 
 interface Type {
@@ -13,13 +14,13 @@ interface Type {
   btnStyle?: StyleProp<ViewStyle>;
 }
 
-const EcoUButton = ({ onPress, text, btnStyle }: Type) => {
+function EcoUButton({ onPress, text, btnStyle }: Type) {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.wrapper, btnStyle]}>
       <GMarketNormalTxt text={text} style={styles.text} />
     </TouchableOpacity>
   );
-};
+}
 
 export default EcoUButton;
 

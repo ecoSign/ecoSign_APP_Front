@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  TouchableOpacity,
-  StyleSheet,
-  View,
   StyleProp,
+  StyleSheet,
+  TouchableOpacity,
+  View,
   ViewStyle,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -15,12 +15,12 @@ type ButtonProps = {
   onPress?: () => void;
 };
 
-export const GradientButton = ({
+export function GradientButton({
   children,
   onPress,
   outerStyle,
   innerStyle,
-}: ButtonProps) => {
+}: ButtonProps) {
   return (
     <TouchableOpacity style={[styles.btn, outerStyle]} onPress={onPress}>
       <LinearGradient
@@ -33,7 +33,7 @@ export const GradientButton = ({
       </LinearGradient>
     </TouchableOpacity>
   );
-};
+}
 
 const styles = StyleSheet.create({
   btn: {

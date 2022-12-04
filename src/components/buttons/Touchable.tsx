@@ -1,5 +1,4 @@
-import React from 'react';
-import { ReactChild, ReactChildren } from 'react';
+import React, { ReactChild, ReactChildren } from 'react';
 import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
 
 interface Type {
@@ -8,12 +7,12 @@ interface Type {
   onPress?: () => void;
 }
 
-const Touchable = ({ children, onPress, style }: Type) => {
+function Touchable({ children, onPress, style }: Type) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={style}>{children}</View>
     </TouchableOpacity>
   );
-};
+}
 
 export default Touchable;

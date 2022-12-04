@@ -1,5 +1,5 @@
 export default {
-    GmarketSansTTFBold: 'GmarketSansTTFBold',
-    GmarketSansTTFMedium: 'GmarketSansTTFMedium',
-    GmarketSansTTFLight: 'GmarketSansTTFLight',
+  GmarketSansTTFBold: 'GmarketSansTTFBold',
+  GmarketSansTTFMedium: 'GmarketSansTTFMedium',
+  GmarketSansTTFLight: 'GmarketSansTTFLight',
 };
