@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Alert,
   Animated,
-  Easing,
   Image,
   ScrollView,
   StyleSheet,
@@ -13,7 +12,11 @@ import {
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import { GMarketNormalTxt, NoTo16NormalTxt } from '@components/Labels';
+import {
+  Medium12GmarketSans,
+  Medium14GmarketSans,
+} from '@components/common/Label/GmarketLabel';
+import { Regular16SpoqaHanSansNeo } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import EcoUButton from '@components/common/buttons/EcoUButton';
 import { FlexContainer } from '@components/common/containers/FlexContainer';
 import RowContainer from '@components/common/containers/RowContainer';
@@ -22,7 +25,7 @@ import { SOCIALTYPE } from '@constants/social';
 import useInput from '@hooks/useInput';
 import Font from '@styles/Font';
 
-function IntroScreen() {
+function IntroScreen({ navigation }: any) {
   const pwInput = useRef<TextInput>(null);
 
   const [userId, onChangeId, setUserId] = useInput('');
@@ -33,16 +36,6 @@ function IntroScreen() {
     Alert.alert('a');
   }, []);
 
-  const ArrowDownMove = (ArrowMove: any) => {
-    Animated.loop(
-      Animated.timing(ArrowMove, {
-        toValue: 100,
-        duration: 1000,
-        useNativeDriver: true,
-      }),
-      { iterations: 1000 },
-    ).start();
-  };
   const ArrowMove = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
@@ -69,12 +62,12 @@ function IntroScreen() {
         <FlexContainer>
           <RowContainer style={styles.top}>
             <Image
-              source={require('../assets/images/auth/textLogo.png')}
+              source={require('../../assets/images/auth/textLogo.png')}
               style={styles.logo}
               resizeMode="contain"
             />
           </RowContainer>
-          <GMarketNormalTxt
+          <Medium14GmarketSans
             text="당신의 에코유를 들려주세요."
             style={{
               color: '#616161',
@@ -86,7 +79,7 @@ function IntroScreen() {
           <UserInput
             value={userId}
             onChangeText={onChangeId}
-            leftIcon={require('../assets/icons/auth/id.png')}
+            leftIcon={require('../../assets/icons/auth/id.png')}
             placeholder="아이디"
             onSubmitEditing={() => pwInput?.current?.focus()}
           />
@@ -94,14 +87,14 @@ function IntroScreen() {
             inputRef={pwInput}
             value={pw}
             onChangeText={onChangePw}
-            leftIcon={require('../assets/icons/auth/pw.png')}
-            rightIcon={require('../assets/icons/auth/id.png')}
+            leftIcon={require('../../assets/icons/auth/pw.png')}
+            rightIcon={require('../../assets/icons/auth/id.png')}
             placeholder="비밀번호"
             autoCorrect={false}
             secureTextEntry={!isPwVisible}
           />
           <TouchableOpacity style={styles.findAccount} onPress={() => null}>
-            <GMarketNormalTxt
+            <Medium12GmarketSans
               text="아이디/비밀번호 찾기"
               style={{
                 fontSize: 12,
@@ -122,10 +115,14 @@ function IntroScreen() {
         <RowContainer
           style={{
             justifyContent: 'center',
+            marginTop: 50,
           }}
         >
           <View style={styles.line} />
-          <NoTo16NormalTxt text="or" style={{ marginHorizontal: 20 }} />
+          <Regular16SpoqaHanSansNeo
+            text="or"
+            style={{ marginHorizontal: 20 }}
+          />
           <View style={styles.line} />
         </RowContainer>
         <RowContainer
@@ -147,7 +144,7 @@ function IntroScreen() {
                   }}
                 >
                   <Image
-                    source={require('../assets/icons/auth/beforeLogin.png')}
+                    source={require('../../assets/icons/auth/beforeLogin.png')}
                     resizeMode="contain"
                     style={{ width: 72, height: 28 }}
                   />
@@ -163,9 +160,9 @@ function IntroScreen() {
         </RowContainer>
         <Text style={styles.bottomTxt}>
           아직 회원이 아니시라면?
-          <GMarketNormalTxt
+          <Medium14GmarketSans
             text=" 회원가입 "
-            onPress={() => Alert.alert('회원가입하러 간드아~~')}
+            onPress={() => navigation.navigate('SocialChoiceScreen')}
             style={{ color: '#9CCC65' }}
           />
           하러가기

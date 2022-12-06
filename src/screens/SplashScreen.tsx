@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { Image, StyleSheet } from 'react-native';
 
-import { NoTo16NormalTxt } from '@components/Labels';
+import {
+  Bold16SpoqaHanSansNeo,
+  Regular16SpoqaHanSansNeo,
+} from '@components/common/Label/SpoqaHanSansNeoLabel';
 import {
   CenterContainer,
   FlexContainer,
@@ -31,11 +34,14 @@ function SplashScreen() {
             style={styles.logo}
             resizeMode="contain"
           />
-          <NoTo16NormalTxt
+          <Bold16SpoqaHanSansNeo
             text="당신의 일상에 에코를 더하다"
             style={{ ...styles.title, fontWeight: 'bold' }}
           />
-          <NoTo16NormalTxt text="오늘도 에코유 하세요!" style={styles.title} />
+          <Regular16SpoqaHanSansNeo
+            text="오늘도 에코유 하세요!"
+            style={styles.title}
+          />
         </CenterContainer>
 
         <Image

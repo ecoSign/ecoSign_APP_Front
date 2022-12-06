@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChild, ReactChildren } from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -6,7 +6,10 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { GMarketNormalTxt } from '@components/Labels';
+import {
+  Medium14GmarketSans,
+  Medium18GmarketSans,
+} from '@components/common/Label/GmarketLabel';
 
 interface Type {
   text: string;
@@ -14,10 +17,27 @@ interface Type {
   btnStyle?: StyleProp<ViewStyle>;
 }
 
+interface EcoUChildButtonType {
+  onPress?: () => void;
+  btnStyle?: StyleProp<ViewStyle>;
+  children: JSX.Element;
+}
+// font18
 function EcoUButton({ onPress, text, btnStyle }: Type) {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.wrapper, btnStyle]}>
-      <GMarketNormalTxt text={text} style={styles.text} />
+      <Medium18GmarketSans text={text} style={styles.text} />
+    </TouchableOpacity>
+  );
+}
+export function EcoUChildButton({
+  onPress,
+  btnStyle,
+  children,
+}: EcoUChildButtonType) {
+  return (
+    <TouchableOpacity onPress={onPress} style={[styles.wrapper, btnStyle]}>
+      {children}
     </TouchableOpacity>
   );
 }
@@ -34,8 +54,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   text: {
-    fontSize: 18,
-    lineHeight: 27,
     color: '#9CCC65',
   },
 });

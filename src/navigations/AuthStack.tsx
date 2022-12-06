@@ -1,10 +1,15 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 
 import Touchable from '@components/common/buttons/Touchable';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import IntroScreen from '../screens/IntroScreen';
+import AuthTermsScreen from '@screens/AuthScreen/AuthTermsScreen';
+import IdentityVerificationScreen from '@screens/AuthScreen/IdentityVerificationScreen';
+import InitialProfileScreen from '@screens/AuthScreen/InitialProfileScreen';
+import IntroScreen from '@screens/AuthScreen/IntroScreen';
+import PersonalInformationScreen from '@screens/AuthScreen/PersonalInformationScreen';
+import SocialChoiceScreen from '@screens/AuthScreen/SocialChoiceScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,10 +23,19 @@ function AuthStack() {
         headerShadowVisible: false,
         headerBackTitleVisible: false,
         headerLeft: () => (
-          <Touchable onPress={() => navigation.goBack()}>
+          <Touchable
+            onPress={() => navigation.goBack()}
+            style={{
+              height: 50,
+              display: 'flex',
+              alignItems: 'center',
+              flexDirection: 'row',
+            }}
+          >
+            <MaterialIcons name="keyboard-arrow-left" size={24} />
             {/* <Image */}
-            {/*    source={require('../assets/icons/common/back.png')} */}
-            {/*    style={styles.backIcon} */}
+            {/*  source={require('../assets/icons/common/back.png')} */}
+            {/*  style={styles.backIcon} */}
             {/* /> */}
           </Touchable>
         ),
@@ -30,6 +44,27 @@ function AuthStack() {
       <Stack.Screen
         name="Intro"
         component={IntroScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name="SocialChoiceScreen" component={SocialChoiceScreen} />
+      <Stack.Screen
+        name="IdentityVerificationScreen"
+        component={IdentityVerificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="AuthTermsScreen"
+        component={AuthTermsScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="PersonalInformationScreen"
+        component={PersonalInformationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="InitialProfileScreen"
+        component={InitialProfileScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen

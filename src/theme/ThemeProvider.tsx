@@ -1,8 +1,8 @@
 import React from 'react';
 import { useColorScheme } from 'react-native';
 
-import { colors } from '../styles/color';
-import { typography } from '../styles/typography';
+import { colors } from '@styles/color';
+import { typography } from '@styles/typography';
 
 export const ThemeContext = React.createContext<any>(null);
 

@@ -22,7 +22,7 @@
     "plugins": [
         "react",
         "react-native",
-//        "react",
+        //        "react",
         "@typescript-eslint"
     ],
     "rules": {

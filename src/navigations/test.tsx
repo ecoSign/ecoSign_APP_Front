@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-import HeaderComponent from '@components/HeaderComponent';
+import HeaderComponent from '@components/common/HeaderComponent';
 import { useAsync } from '@hooks/useAsync';
 import { useLayout } from '@hooks/useLayout';
 import Font from '@styles/Font';

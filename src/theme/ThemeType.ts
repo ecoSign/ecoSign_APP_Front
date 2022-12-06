@@ -6,6 +6,7 @@ export interface ThemeType {
     BACKGROUND: string;
     TEXT: string;
     TEXT_SECONDARY: string;
+    MAIN: string;
   };
   typography: {
     size: { L: number; M: number; S: number };
