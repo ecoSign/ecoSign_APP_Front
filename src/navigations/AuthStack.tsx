@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-import Touchable from '@components/buttons/Touchable';
+import Touchable from '@components/common/buttons/Touchable';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import IntroScreen from '../screens/IntroScreen';
@@ -29,6 +29,11 @@ function AuthStack() {
     >
       <Stack.Screen
         name="Intro"
+        component={IntroScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="SignUpIntro"
         component={IntroScreen}
         options={{ headerShown: false }}
       />

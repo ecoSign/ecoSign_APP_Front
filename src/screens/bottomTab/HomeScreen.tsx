@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-import { FlexContainer } from '@components/containers/FlexContainer';
+import { FlexContainer } from '@components/common/containers/FlexContainer';
 
 function HomeScreen() {
   return (

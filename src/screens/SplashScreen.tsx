@@ -5,8 +5,8 @@ import { NoTo16NormalTxt } from '@components/Labels';
 import {
   CenterContainer,
   FlexContainer,
-} from '@components/containers/FlexContainer';
-import { GradientContainer } from '@components/containers/GradientContainer';
+} from '@components/common/containers/FlexContainer';
+import { GradientContainer } from '@components/common/containers/GradientContainer';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '@constants/auth';
 import { useNavigation } from '@react-navigation/native';
 import { resetNavigation } from '@utils/navigation';

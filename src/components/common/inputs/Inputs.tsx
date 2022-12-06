@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, TextInput, View } from 'react-native';
 
-import RowContainer from '@components/containers/RowContainer';
-import { UserInputType } from '@components/inputs/type';
+import RowContainer from '@components/common/containers/RowContainer';
+import { UserInputType } from '@components/common/inputs/type';
 import useToggle from '@hooks/useToggle';
 
 export const SearchInput = () => {};

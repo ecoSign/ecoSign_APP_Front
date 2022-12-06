@@ -39,9 +39,14 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>GmarketSansTTFBold.ttf</string>
-		<string>GmarketSansTTFMedium.ttf</string>
-		<string>GmarketSansTTFLight.ttf</string>
+		<string>Fonts/GmarketSansTTFBold.ttf</string>
+		<string>Fonts/GmarketSansTTFLight.ttf</string>
+		<string>Fonts/GmarketSansTTFMedium.ttf</string>
+		<string>Fonts/SpoqaHanSansNeoBold.ttf</string>
+		<string>Fonts/SpoqaHanSansNeoLight.ttf</string>
+		<string>Fonts/SpoqaHanSansNeoMedium.ttf</string>
+		<string>Fonts/SpoqaHanSansNeoRegular.ttf</string>
+		<string>Fonts/SpoqaHanSansNeoThin.ttf</string>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>

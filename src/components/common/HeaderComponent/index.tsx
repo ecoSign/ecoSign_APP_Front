@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import Touchable from '@components/buttons/Touchable';
+import Touchable from '@components/common/buttons/Touchable';
 import { ThemeType } from '@theme/ThemeType';
 import styled from 'styled-components/native';
 
