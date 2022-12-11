@@ -1,5 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { ReactChild, ReactChildren } from 'react';
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextStyle,
+  View,
+  ViewPropTypes,
+  ViewStyle,
+} from 'react-native';
 
 import DisableButton from '@components/common/buttons/DisableButton';
 import { FlexContainer } from '@components/common/containers/FlexContainer';
@@ -7,12 +15,13 @@ import RowContainer from '@components/common/containers/RowContainer';
 import AuthStep from '@components/elements/AuthScreen/AuthStep';
 
 interface SignUpLayoutType {
-  header?: any;
-  step?: any;
-  content?: any;
-  text?: any;
-  disabled?: any;
-  onPress: any;
+  header: JSX.Element;
+  step?: number;
+  content: JSX.Element;
+  text: string;
+  disabled?: boolean;
+  onPress?: () => void;
+  headerStyle?: StyleProp<ViewStyle>;
 }
 function SignUpLayout({
   header,
@@ -21,11 +30,16 @@ function SignUpLayout({
   text,
   disabled = false,
   onPress,
+  headerStyle,
 }: SignUpLayoutType) {
   return (
     <FlexContainer style={styles.container}>
       <RowContainer
-        style={{ alignItems: 'flex-start', justifyContent: 'space-between' }}
+        style={{
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          ...(headerStyle as {}),
+        }}
       >
         {header}
         <AuthStep step={step} />

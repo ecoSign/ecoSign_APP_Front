@@ -28,4 +28,6 @@ interface UserInputType extends InputType {
   rightIcon?: any | undefined;
   inputRef?: LegacyRef<T> | undefined;
 }
-interface HasResetInputType extends InputType {}
+interface HasResetInputType extends InputType {
+  maxLength?: number;
+}

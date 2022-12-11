@@ -22,16 +22,17 @@ import styled from 'styled-components';
 
 interface FormValues {
   phone: string;
+  verificationCode: string;
 }
 
-function IdentityVerificationScreen() {
+function IdentityVerificationScreen({ navigation }: any) {
   const style = useThemedStyles(styles);
 
   const { control, handleSubmit } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
-    console.log('tes');
     console.log(data);
+    navigation.navigate('AuthTermsScreen');
   };
 
   const onError: SubmitErrorHandler<FormValues> = (errors, e) =>
@@ -81,6 +82,8 @@ function IdentityVerificationScreen() {
                   onChangeText={onChange}
                   value={value}
                   placeholder="‘ - ’ 제외. 숫자만 입력"
+                  keyboardType="numeric"
+                  maxLength={12}
                 />
               )}
             />
@@ -113,13 +116,14 @@ function IdentityVerificationScreen() {
                   message: 'Field is required!',
                 },
               }}
-              name="phone"
+              name="verificationCode"
               defaultValue=""
               render={({ field: { onChange, value } }) => (
                 <HasResetInput
                   onChangeText={onChange}
                   value={value}
                   placeholder="숫자만 입력"
+                  keyboardType="numeric"
                 />
               )}
             />

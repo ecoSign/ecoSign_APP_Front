@@ -11,6 +11,9 @@ export interface ThemeType {
     GRAY500: '#9e9e9e';
     GRAY400: '#BDBDBD';
     GRAY300: '#E0E0E0';
+    GRAY50: '#FAFAFA';
+    //  GREEN
+    GREEN400: '#9CCC65';
   };
   typography: {
     size: { L: number; M: number; S: number };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
+import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 
 import Touchable from '@components/common/buttons/Touchable';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -32,7 +32,7 @@ function AuthStack() {
               flexDirection: 'row',
             }}
           >
-            <MaterialIcons name="keyboard-arrow-left" size={24} />
+            <Icon name="keyboard-arrow-left" size={24} />
             {/* <Image */}
             {/*  source={require('../assets/icons/common/back.png')} */}
             {/*  style={styles.backIcon} */}
@@ -55,7 +55,7 @@ function AuthStack() {
       <Stack.Screen
         name="AuthTermsScreen"
         component={AuthTermsScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="PersonalInformationScreen"

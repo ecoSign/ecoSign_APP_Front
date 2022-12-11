@@ -8,6 +8,8 @@ import {
   UserInputType,
 } from '@components/common/inputs/type';
 import useToggle from '@hooks/useToggle';
+import { ThemeType } from '@theme/ThemeType';
+import useThemedStyles from '@theme/useThemedStyles';
 
 export const SearchInput = () => {};
 
@@ -26,21 +28,22 @@ export function UserInput({
   secureTextEntry = false,
 }: UserInputType) {
   const [isFocused, toggle, setIsFocused] = useToggle();
+  const style = useThemedStyles(styles);
 
   return (
     <RowContainer
       style={{
-        ...styles.container,
+        ...style.container,
         borderBottomColor: isFocused ? '#212121' : '#eee',
         height: 54,
       }}
     >
-      {leftIcon && <Image source={leftIcon} style={styles.leftIcon} />}
+      {leftIcon && <Image source={leftIcon} style={style.leftIcon} />}
       <TextInput
         ref={inputRef}
         value={value}
         onChangeText={onChangeText}
-        style={[styles.input, inputStyle]}
+        style={[style.input, inputStyle]}
         placeholder={placeholder}
         placeholderTextColor="#BDBDBD"
         autoCapitalize={autoCapitalize}
@@ -51,7 +54,7 @@ export function UserInput({
         autoCorrect={autoCorrect}
         secureTextEntry={secureTextEntry}
       />
-      {rightIcon && <Image source={rightIcon} style={styles.rightIcon} />}
+      {rightIcon && <Image source={rightIcon} style={style.rightIcon} />}
     </RowContainer>
   );
 }
@@ -66,13 +69,16 @@ export function HasResetInput({
   onSubmitEditing,
   autoCorrect = false,
   secureTextEntry = false,
+  maxLength,
 }: HasResetInputType) {
+  const style = useThemedStyles(styles);
+
   return (
     <RowContainer style={{ justifyContent: 'space-between', flex: 1 }}>
       <TextInput
         value={value}
         onChangeText={onChangeText}
-        style={[styles.resetInput, inputStyle]}
+        style={[style.resetInput, inputStyle]}
         placeholder={placeholder}
         placeholderTextColor="#BDBDBD"
         autoCapitalize={autoCapitalize}
@@ -80,6 +86,7 @@ export function HasResetInput({
         onSubmitEditing={onSubmitEditing}
         autoCorrect={autoCorrect}
         secureTextEntry={secureTextEntry}
+        maxLength={maxLength}
       />
       <Touchable
         onPress={() => {
@@ -90,7 +97,7 @@ export function HasResetInput({
       >
         <Image
           source={require('../../../assets/icons/auth/close.png')}
-          style={styles.closeImage}
+          style={style.closeImage}
           resizeMode="contain"
         />
       </Touchable>
@@ -98,36 +105,37 @@ export function HasResetInput({
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    borderBottomWidth: 2,
-    paddingHorizontal: 14,
-    marginTop: 12,
-    justifyContent: 'space-between',
-  },
-  leftIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 6,
-  },
-  rightIcon: {
-    width: 18,
-    height: 18,
-    marginRight: 4,
-  },
-  input: {
-    flex: 1,
-    fontSize: 16,
-    lineHeight: 24,
-    color: '#212121',
-  },
-  resetInput: {
-    color: '#BDBDBD',
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  closeImage: {
-    width: 18,
-    height: 16,
-  },
-});
+const styles = (theme: ThemeType) =>
+  StyleSheet.create({
+    container: {
+      borderBottomWidth: 2,
+      paddingHorizontal: 14,
+      marginTop: 12,
+      justifyContent: 'space-between',
+    },
+    leftIcon: {
+      width: 24,
+      height: 24,
+      marginRight: 6,
+    },
+    rightIcon: {
+      width: 18,
+      height: 18,
+      marginRight: 4,
+    },
+    input: {
+      flex: 1,
+      fontSize: 16,
+      lineHeight: 24,
+      color: theme.colors.GRAY900,
+    },
+    resetInput: {
+      color: theme.colors.GRAY900,
+      fontSize: 16,
+      lineHeight: 24,
+    },
+    closeImage: {
+      width: 18,
+      height: 16,
+    },
+  });
