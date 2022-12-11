@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import { Image, StyleSheet, TextInput, View } from 'react-native';
+import React from 'react';
+import { Image, StyleSheet, TextInput } from 'react-native';
 
+import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
-import { UserInputType } from '@components/common/inputs/type';
+import {
+  HasResetInputType,
+  UserInputType,
+} from '@components/common/inputs/type';
 import useToggle from '@hooks/useToggle';
 
 export const SearchInput = () => {};
@@ -52,6 +56,48 @@ export function UserInput({
   );
 }
 
+export function HasResetInput({
+  value,
+  onChangeText,
+  placeholder,
+  inputStyle,
+  autoCapitalize = 'none',
+  keyboardType,
+  onSubmitEditing,
+  autoCorrect = false,
+  secureTextEntry = false,
+}: HasResetInputType) {
+  return (
+    <RowContainer style={{ justifyContent: 'space-between', flex: 1 }}>
+      <TextInput
+        value={value}
+        onChangeText={onChangeText}
+        style={[styles.resetInput, inputStyle]}
+        placeholder={placeholder}
+        placeholderTextColor="#BDBDBD"
+        autoCapitalize={autoCapitalize}
+        keyboardType={keyboardType}
+        onSubmitEditing={onSubmitEditing}
+        autoCorrect={autoCorrect}
+        secureTextEntry={secureTextEntry}
+      />
+      <Touchable
+        onPress={() => {
+          if (onChangeText) {
+            onChangeText('');
+          }
+        }}
+      >
+        <Image
+          source={require('../../../assets/icons/auth/close.png')}
+          style={styles.closeImage}
+          resizeMode="contain"
+        />
+      </Touchable>
+    </RowContainer>
+  );
+}
+
 const styles = StyleSheet.create({
   container: {
     borderBottomWidth: 2,
@@ -74,5 +120,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     color: '#212121',
+  },
+  resetInput: {
+    color: '#BDBDBD',
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  closeImage: {
+    width: 18,
+    height: 16,
   },
 });

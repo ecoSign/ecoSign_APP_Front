@@ -16,7 +16,7 @@ import useThemedStyles from '@theme/useThemedStyles';
 
 import { SOCIALTYPE } from '@/constants/social';
 
-function SocialChoiceScreen() {
+function SocialChoiceScreen({ navigation }: any) {
   const style = useThemedStyles(styles);
 
   return (
@@ -26,7 +26,12 @@ function SocialChoiceScreen() {
         <Medium18SpoqaHanSansNeo text="에코유" />
         <Thin18SpoqaHanSansNeo text="에 처음 오셨군요!" />
       </RowContainer>
-      <EcoUChildButton btnStyle={{ position: 'relative' }}>
+      <EcoUChildButton
+        btnStyle={{ position: 'relative' }}
+        onPress={() => {
+          navigation.push('IdentityVerificationScreen');
+        }}
+      >
         <>
           <Image
             source={require('../../assets/images/auth/tree.png')}

@@ -53,31 +53,31 @@ function TEST() {
 }
 
 const Container = styled.View`
-  background-color: ${(props) => props.theme.colors.SUCCESS};
+  background-color: ${(props) => props.theme.colors.MAIN};
 `;
 
 const styles = (theme: ThemeType) =>
   StyleSheet.create({
     body: {
-      backgroundColor: theme.colors.BACKGROUND,
+      backgroundColor: theme.colors.MAIN,
       justifyContent: 'space-evenly',
       alignItems: 'center',
       padding: 20,
     },
     title: {
-      color: theme.colors.PRIMARY,
+      color: theme.colors.MAIN,
       fontSize: theme.typography.size.L,
       letterSpacing: theme.typography.letterSpacing.M,
       fontWeight: 'bold',
     },
     text: {
-      color: theme.colors.TEXT,
+      color: theme.colors.MAIN,
       fontSize: theme.typography.size.M,
       letterSpacing: theme.typography.letterSpacing.S,
       textAlign: 'justify',
     },
     referralCode: {
-      color: theme.colors.TEXT_SECONDARY,
+      color: theme.colors.MAIN,
       fontSize: theme.typography.size.S,
       letterSpacing: theme.typography.letterSpacing.L,
       fontWeight: 'bold',

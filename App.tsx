@@ -29,10 +29,10 @@ import { colors } from './src/styles/color';
 import { typography } from './src/styles/typography';
 import ThemeProviderSheet from './src/theme/ThemeProvider';
 
-const App = () => {
+function App() {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: 'isDarkMode ? Colors.darker : Colors.lighter',
   };
 
   const queryClient = new QueryClient({
@@ -61,13 +61,13 @@ const App = () => {
                   <StatusBar
                     barStyle={isDarkMode ? 'light-content' : 'dark-content'}
                   />
-                  {/*<ScrollView*/}
-                  {/*  contentInsetAdjustmentBehavior="automatic"*/}
-                  {/*  style={[backgroundStyle]}*/}
-                  {/*>*/}
+                  {/* <ScrollView */}
+                  {/*  contentInsetAdjustmentBehavior="automatic" */}
+                  {/*  style={[backgroundStyle]} */}
+                  {/* > */}
                   <RootStack />
-                  {/*<TEST />*/}
-                  {/*</ScrollView>*/}
+                  {/* <TEST /> */}
+                  {/* </ScrollView> */}
                 </SafeAreaView>
               </NavigationContainer>
             </ThemeProvider>
@@ -76,7 +76,7 @@ const App = () => {
       </PersistGate>
     </Provider>
   );
-};
+}
 
 export default App;
 

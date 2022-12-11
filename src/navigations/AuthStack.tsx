@@ -50,7 +50,7 @@ function AuthStack() {
       <Stack.Screen
         name="IdentityVerificationScreen"
         component={IdentityVerificationScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="AuthTermsScreen"
