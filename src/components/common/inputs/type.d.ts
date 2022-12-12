@@ -4,6 +4,7 @@ import {
   KeyboardTypeOptions,
   NativeSyntheticEvent,
   StyleProp,
+  TargetedEvent,
   TextInputSubmitEditingEventData,
   TextStyle,
 } from 'react-native';
@@ -30,4 +31,6 @@ interface UserInputType extends InputType {
 }
 interface HasResetInputType extends InputType {
   maxLength?: number;
+  onFocus?: ((e: NativeSyntheticEvent<TargetedEvent>) => void) | undefined;
+  onBlur?: ((e: NativeSyntheticEvent<TargetedEvent>) => void) | undefined;
 }

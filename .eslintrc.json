@@ -47,6 +47,7 @@
         "react/no-unused-prop-types": "off",
         "react/no-array-index-key": "off",
         "no-console": "off",
-        "react/jsx-no-useless-fragment": "off"
+        "react/jsx-no-useless-fragment": "off",
+        "no-nested-ternary": "off"
     }
 }

@@ -18,6 +18,7 @@ import SignUpLayout from '@components/common/Layouts/SignUpLayout';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
 import { HasResetInput } from '@components/common/inputs/Inputs';
+import TitleInput from '@components/elements/AuthScreen/TitleInput';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 import styled from 'styled-components';
@@ -75,33 +76,26 @@ function InitialProfileScreen({ navigation }: any) {
             </View>
           </View>
         </RowContainer>
-        <InputBox>
-          <Regular12SpoqaHanSansNeo
-            text="닉네임"
-            style={{ color: '#757575', marginBottom: 5 }}
-          />
-          <RowContainer>
-            <Controller
-              control={control}
-              rules={{
-                required: {
-                  value: true,
-                  message: 'Field is required!',
-                },
-              }}
-              name="nickName"
-              defaultValue=""
-              render={({ field: { onChange, value } }) => (
-                <HasResetInput
-                  onChangeText={onChange}
-                  value={value}
-                  placeholder="에코유453"
-                  maxLength={8}
-                />
-              )}
+        <Controller
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: 'Field is required!',
+            },
+          }}
+          name="nickName"
+          defaultValue=""
+          render={({ field: { onChange, value } }) => (
+            <TitleInput
+              onChangeText={onChange}
+              value={value}
+              placeholder="에코유453"
+              maxLength={8}
+              title="닉네임"
             />
-          </RowContainer>
-        </InputBox>
+          )}
+        />
 
         <Regular12SpoqaHanSansNeo
           text={'\u2022 최대 8자 이내로 설정해주세요'}

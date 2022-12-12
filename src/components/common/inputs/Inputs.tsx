@@ -70,6 +70,8 @@ export function HasResetInput({
   autoCorrect = false,
   secureTextEntry = false,
   maxLength,
+  onFocus,
+  onBlur,
 }: HasResetInputType) {
   const style = useThemedStyles(styles);
 
@@ -87,6 +89,8 @@ export function HasResetInput({
         autoCorrect={autoCorrect}
         secureTextEntry={secureTextEntry}
         maxLength={maxLength}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
       <Touchable
         onPress={() => {

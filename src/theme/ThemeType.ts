@@ -16,6 +16,8 @@ export interface ThemeType {
     //  GREEN
     GREEN500: '#8BC34A';
     GREEN400: '#9CCC65';
+    //  RED
+    RED200: '#FF5252';
   };
   typography: {
     size: { L: number; M: number; S: number };

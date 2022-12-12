@@ -16,6 +16,7 @@ import SignUpLayout from '@components/common/Layouts/SignUpLayout';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
 import { HasResetInput } from '@components/common/inputs/Inputs';
+import TitleInput from '@components/elements/AuthScreen/TitleInput';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 import styled from 'styled-components';
@@ -56,77 +57,68 @@ function IdentityVerificationScreen({ navigation }: any) {
     );
   }
 
+  function SendButton() {
+    return (
+      <Touchable
+        style={[
+          style.sendButton,
+          isSendVerification
+            ? style.ActiveSendButton
+            : style.UnActiveSendButton,
+        ]}
+      >
+        <Regular12SpoqaHanSansNeo
+          text="번호전송"
+          style={{ color: isSendVerification ? '#9CCC65' : '#fff' }}
+        />
+      </Touchable>
+    );
+  }
   function Content() {
     return (
       <View style={{ marginTop: 24 }}>
-        <InputBox>
-          <Regular12SpoqaHanSansNeo
-            text="휴대폰번호"
-            style={{ color: '#757575', marginBottom: 5 }}
-          />
-          <RowContainer>
-            <Controller
-              control={control}
-              rules={{
-                required: {
-                  value: true,
-                  message: 'Field is required!',
-                },
-              }}
-              name="phone"
-              defaultValue=""
-              render={({ field: { onChange, value } }) => (
-                <HasResetInput
-                  onChangeText={onChange}
-                  value={value}
-                  placeholder="‘ - ’ 제외. 숫자만 입력"
-                  keyboardType="numeric"
-                  maxLength={12}
-                />
-              )}
+        <Controller
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: 'Field is required!',
+            },
+          }}
+          name="phone"
+          defaultValue=""
+          render={({ field: { onChange, value } }) => (
+            <TitleInput
+              title="휴대폰번호"
+              onChangeText={onChange}
+              value={value}
+              placeholder="‘ - ’ 제외. 숫자만 입력"
+              keyboardType="numeric"
+              rightIcon={<SendButton />}
+              maxLength={12}
             />
-            <Touchable
-              style={[
-                style.sendButton,
-                isSendVerification
-                  ? style.ActiveSendButton
-                  : style.UnActiveSendButton,
-              ]}
-            >
-              <Regular12SpoqaHanSansNeo
-                text="번호전송"
-                style={{ color: isSendVerification ? '#9CCC65' : '#fff' }}
-              />
-            </Touchable>
-          </RowContainer>
-        </InputBox>
-        <InputBox>
-          <Regular12SpoqaHanSansNeo
-            text="인증번호"
-            style={{ color: '#757575', marginBottom: 5 }}
-          />
-          <RowContainer>
-            <Controller
-              control={control}
-              rules={{
-                required: {
-                  value: true,
-                  message: 'Field is required!',
-                },
-              }}
-              name="verificationCode"
-              defaultValue=""
-              render={({ field: { onChange, value } }) => (
-                <HasResetInput
-                  onChangeText={onChange}
-                  value={value}
-                  placeholder="숫자만 입력"
-                  keyboardType="numeric"
-                />
-              )}
+          )}
+        />
+        <Controller
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: 'Field is required!',
+            },
+          }}
+          name="verificationCode"
+          defaultValue=""
+          render={({ field: { onChange, value } }) => (
+            <TitleInput
+              title="인증번호"
+              onChangeText={onChange}
+              value={value}
+              placeholder="숫자만 입력"
+              keyboardType="numeric"
             />
-          </RowContainer>
-        </InputBox>
+          )}
+        />
       </View>
     );
   }
