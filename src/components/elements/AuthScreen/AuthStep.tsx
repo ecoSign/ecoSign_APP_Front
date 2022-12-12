@@ -1,11 +1,24 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  StyleProp,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 import RowContainer from '@components/common/containers/RowContainer';
 import Font from '@styles/Font';
 import { ThemeType } from '@theme/ThemeType';
 
-function AuthStep({ step = 1 }: { step?: number }) {
+function AuthStep({
+  step = 1,
+  style,
+}: {
+  step?: number;
+  style?: StyleProp<ViewStyle>;
+}) {
   const step2Image =
     step >= 2
       ? require('../../../assets/images/auth/activeStep2.png')
@@ -17,7 +30,7 @@ function AuthStep({ step = 1 }: { step?: number }) {
       : require('../../../assets/images/auth/unActiveStep3.png');
 
   return (
-    <RowContainer>
+    <RowContainer style={{ marginTop: 9, ...(style as {}) }}>
       <Image
         source={require('../../../assets/images/auth/activeStep1.png')}
         style={styles.image}

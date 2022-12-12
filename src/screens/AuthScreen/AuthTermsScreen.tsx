@@ -12,7 +12,7 @@ import { AUTH_TERMS } from '@constants/authTerms';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
-function AuthTermsScreen() {
+function AuthTermsScreen({ navigation }: any) {
   const style = useThemedStyles(styles);
   const [acceptList, setAcceptList] = useState<string[]>([]);
 
@@ -82,7 +82,7 @@ function AuthTermsScreen() {
   }
 
   const onPressNextScreen = () => {
-    console.log('test');
+    navigation.navigate('PersonalInformationScreen');
   };
 
   return (
@@ -99,6 +99,7 @@ function AuthTermsScreen() {
       content={<Content />}
       headerStyle={{ alignItems: 'center', marginBottom: 24 }}
       onPress={onPressNextScreen}
+      stepStyle={{ marginTop: 0 }}
     />
   );
 }

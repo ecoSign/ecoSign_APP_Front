@@ -60,12 +60,12 @@ function AuthStack() {
       <Stack.Screen
         name="PersonalInformationScreen"
         component={PersonalInformationScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="InitialProfileScreen"
         component={InitialProfileScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="SignUpIntro"

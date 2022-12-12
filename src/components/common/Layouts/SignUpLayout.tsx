@@ -22,6 +22,7 @@ interface SignUpLayoutType {
   disabled?: boolean;
   onPress?: () => void;
   headerStyle?: StyleProp<ViewStyle>;
+  stepStyle?: StyleProp<ViewStyle>;
 }
 function SignUpLayout({
   header,
@@ -31,6 +32,7 @@ function SignUpLayout({
   disabled = false,
   onPress,
   headerStyle,
+  stepStyle,
 }: SignUpLayoutType) {
   return (
     <FlexContainer style={styles.container}>
@@ -42,7 +44,7 @@ function SignUpLayout({
         }}
       >
         {header}
-        <AuthStep step={step} />
+        <AuthStep step={step} style={stepStyle} />
       </RowContainer>
       <FlexContainer style={{ flex: 1 }}>{content}</FlexContainer>
       <DisableButton text={text} disabled={disabled} onPress={onPress} />
