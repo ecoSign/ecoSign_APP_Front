@@ -1,13 +1,5 @@
 import React, { ReactChild, ReactChildren } from 'react';
-import {
-  StyleProp,
-  StyleSheet,
-  Text,
-  TextStyle,
-  View,
-  ViewPropTypes,
-  ViewStyle,
-} from 'react-native';
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
 import DisableButton from '@components/common/buttons/DisableButton';
 import { FlexContainer } from '@components/common/containers/FlexContainer';
@@ -44,7 +36,7 @@ function SignUpLayout({
         }}
       >
         {header}
-        <AuthStep step={step} style={stepStyle} />
+        {step ? <AuthStep step={step} style={stepStyle} /> : <></>}
       </RowContainer>
       <FlexContainer style={{ flex: 1 }}>{content}</FlexContainer>
       <DisableButton text={text} disabled={disabled} onPress={onPress} />

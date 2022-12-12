@@ -7,9 +7,12 @@ const GRAY600 = '#757575';
 const GRAY500 = '#9e9e9e';
 const GRAY400 = '#BDBDBD';
 const GRAY300 = '#E0E0E0';
+const GRAY200 = '#EEEEEE';
+const GRAY100 = '#F5F5F5';
 const GRAY50 = '#FAFAFA';
 // GREEN
 
+const GREEN500 = '#8BC34A';
 const GREEN400 = '#9CCC65';
 
 const DISABLE = 'rgba(0, 0, 0, 0.03)';
@@ -31,8 +34,11 @@ const common = {
   GRAY500,
   GRAY400,
   GRAY300,
+  GRAY200,
+  GRAY100,
   GRAY50,
 
+  GREEN500,
   GREEN400,
 };
 

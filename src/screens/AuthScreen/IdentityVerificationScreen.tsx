@@ -31,12 +31,10 @@ function IdentityVerificationScreen({ navigation }: any) {
   const { control, handleSubmit } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
-    console.log(data);
     navigation.navigate('AuthTermsScreen');
   };
 
-  const onError: SubmitErrorHandler<FormValues> = (errors, e) =>
-    console.log('errors', errors);
+  const onError: SubmitErrorHandler<FormValues> = (errors, e) => {};
   const isSendVerification = true;
   // const onError: SubmitErrorHandler<FormValues> = (errors, e) => {
   //   return console.log(errors);

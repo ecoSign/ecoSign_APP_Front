@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/dist/MaterialIcons';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 import Touchable from '@components/common/buttons/Touchable';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -30,9 +30,10 @@ function AuthStack() {
               display: 'flex',
               alignItems: 'center',
               flexDirection: 'row',
+              marginLeft: 10,
             }}
           >
-            <Icon name="keyboard-arrow-left" size={24} />
+            <Icon name="arrow-left" size={16} />
             {/* <Image */}
             {/*  source={require('../assets/icons/common/back.png')} */}
             {/*  style={styles.backIcon} */}

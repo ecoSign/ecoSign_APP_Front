@@ -133,6 +133,7 @@ const styles = (theme: ThemeType) =>
       color: theme.colors.GRAY900,
       fontSize: 16,
       lineHeight: 24,
+      flex: 1,
     },
     closeImage: {
       width: 18,

@@ -116,6 +116,7 @@ function PersonalInformationScreen({ navigation }: any) {
                   value={value}
                   placeholder="비밀번호 입력"
                   maxLength={12}
+                  secureTextEntry
                 />
               )}
             />
@@ -143,6 +144,7 @@ function PersonalInformationScreen({ navigation }: any) {
                   value={value}
                   placeholder="비밀번호 재입력"
                   maxLength={12}
+                  secureTextEntry
                 />
               )}
             />
