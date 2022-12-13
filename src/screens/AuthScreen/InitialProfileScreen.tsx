@@ -5,23 +5,29 @@ import {
   SubmitHandler,
   useForm,
 } from 'react-hook-form';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
+import BottomSheet from '@components/common/BottomSheet';
+import {
+  Bold18GmarketSans,
+  Bold20GmarketSans,
+  Medium18GmarketSans,
+  Medium20GmarketSans,
+} from '@components/common/Label/GmarketLabel';
 import {
   Regular12SpoqaHanSansNeo,
-  Regular14SpoqaHanSansNeo,
-  Regular16SpoqaHanSansNeo,
-  Regular18SpoqaHanSansNeo,
   Thin18SpoqaHanSansNeo,
 } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import SignUpLayout from '@components/common/Layouts/SignUpLayout';
-import Touchable from '@components/common/buttons/Touchable';
+import EcoUButton from '@components/common/buttons/EcoUButton';
+import { FlexContainer } from '@components/common/containers/FlexContainer';
 import RowContainer from '@components/common/containers/RowContainer';
-import { HasResetInput } from '@components/common/inputs/Inputs';
 import TitleInput from '@components/elements/AuthScreen/TitleInput';
+import { SCREEN_WIDTH } from '@constants/auth';
+import { useLayout } from '@hooks/useLayout';
+import useToggle from '@hooks/useToggle';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
-import styled from 'styled-components';
 
 interface FormValues {
   nickName: string;
@@ -29,12 +35,14 @@ interface FormValues {
 
 function InitialProfileScreen({ navigation }: any) {
   const style = useThemedStyles(styles);
+  const [modalVisible, modalVisibleToggle, setModalVisible] = useToggle();
+  const [layout, setLayout] = useLayout();
 
   const { control, handleSubmit } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
     console.log(data);
-    navigation.navigate('InitialProfileScreen');
+    modalVisibleToggle();
   };
 
   const onError: SubmitErrorHandler<FormValues> = (errors, e) =>
@@ -112,13 +120,82 @@ function InitialProfileScreen({ navigation }: any) {
   }
 
   return (
-    <SignUpLayout
-      header={<Header />}
-      text="다음"
-      disabled={false}
-      content={<Content />}
-      onPress={handleSubmit(onSubmit, onError)}
-    />
+    <>
+      <SignUpLayout
+        header={<Header />}
+        text="완료"
+        disabled={false}
+        content={<Content />}
+        onPress={handleSubmit(onSubmit, onError)}
+      />
+      {modalVisible && (
+        <BottomSheet
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          disable
+        >
+          <View style={style.signUpSuccessContainer}>
+            <FlexContainer
+              style={{
+                flex: 0,
+                alignItems: 'center',
+              }}
+            >
+              <View style={{ position: 'relative' }}>
+                <Image
+                  source={require('../../assets/images/auth/chatBubble.png')}
+                  style={style.successBubble}
+                  resizeMode="contain"
+                />
+                <View
+                  style={{
+                    ...style.loginText,
+                    transform: [
+                      {
+                        translateX: -(layout.width / 2) - 10,
+                      },
+                      {
+                        translateY: -(layout.height / 2) - layout.height * 0.21,
+                      },
+                    ],
+                  }}
+                  onLayout={setLayout}
+                >
+                  <RowContainer>
+                    <Bold18GmarketSans
+                      text="너굴이짱"
+                      style={style.successTitle}
+                    />
+                    <Medium18GmarketSans
+                      text="님 반가워요!"
+                      style={style.successTitle}
+                    />
+                  </RowContainer>
+                  <Medium18GmarketSans
+                    text="에코유에 오신것을 환영합니다 :D"
+                    style={style.successTitle}
+                  />
+                </View>
+              </View>
+              <Image
+                source={require('../../assets/images/auth/singUpSuccess.png')}
+                resizeMode="contain"
+                style={style.successImage}
+              />
+              {/**/}
+              {/*    */}
+            </FlexContainer>
+            <EcoUButton
+              text="에코유 홈으로 가기"
+              btnStyle={style.loginBtn}
+              onPress={() => {
+                console.log('13');
+              }}
+            />
+          </View>
+        </BottomSheet>
+      )}
+    </>
   );
 }
 
@@ -148,17 +225,31 @@ const styles = (theme: ThemeType) =>
     inforText: {
       color: theme.colors.GREEN500,
     },
+    signUpSuccessContainer: {
+      paddingHorizontal: 16,
+      paddingTop: 25,
+      paddingBottom: 40,
+      flexDirection: 'column',
+    },
+    successBubble: {
+      width: SCREEN_WIDTH - 52,
+      height: (SCREEN_WIDTH - 52) * 0.38,
+    },
+    successImage: {
+      height: SCREEN_WIDTH * 0.61,
+      // width: SCREEN_WIDTH * 0.61,
+    },
+    loginBtn: {
+      marginTop: 14,
+    },
+    loginText: {
+      position: 'absolute',
+      left: '50%',
+      top: '50%',
+    },
+    successTitle: {
+      color: theme.colors.GRAY700,
+    },
   });
 
-const InputBox = styled(View)`
-  background-color: ${(props: { theme: { colors: { DISABLE: any } } }) =>
-    props.theme.colors.DISABLE};
-  padding-top: 6px;
-  padding-bottom: 12px;
-  padding-horizontal: 14;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  //border-width: 1px;
-  //border-color: #212121;
-`;
 export default InitialProfileScreen;

@@ -3,6 +3,7 @@ const MAIN = '#9CCC65';
 
 // GRAY
 const GRAY900 = '#212121';
+const GRAY700 = '#616161';
 const GRAY600 = '#757575';
 const GRAY500 = '#9e9e9e';
 const GRAY400 = '#BDBDBD';
@@ -33,6 +34,7 @@ const common = {
   WHITE,
 
   GRAY900,
+  GRAY700,
   GRAY600,
   GRAY500,
   GRAY400,

@@ -15,7 +15,6 @@ import {
 import SignUpLayout from '@components/common/Layouts/SignUpLayout';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
-import { HasResetInput } from '@components/common/inputs/Inputs';
 import TitleInput from '@components/elements/AuthScreen/TitleInput';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
@@ -99,26 +98,42 @@ function IdentityVerificationScreen({ navigation }: any) {
             />
           )}
         />
-        <Controller
-          control={control}
-          rules={{
-            required: {
-              value: true,
-              message: 'Field is required!',
-            },
-          }}
-          name="verificationCode"
-          defaultValue=""
-          render={({ field: { onChange, value } }) => (
-            <TitleInput
-              title="인증번호"
-              onChangeText={onChange}
-              value={value}
-              placeholder="숫자만 입력"
-              keyboardType="numeric"
-            />
-          )}
-        />
+
+        <View style={{ position: 'relative' }}>
+          <Controller
+            control={control}
+            rules={{
+              required: {
+                value: true,
+                message: 'Field is required!',
+              },
+            }}
+            name="verificationCode"
+            defaultValue=""
+            render={({ field: { onChange, value } }) => (
+              <TitleInput
+                title="인증번호"
+                onChangeText={onChange}
+                value={value}
+                placeholder="숫자만 입력"
+                keyboardType="numeric"
+                maxLength={4}
+              />
+            )}
+          />
+          <Regular12SpoqaHanSansNeo text="4:00" style={style.timer} />
+        </View>
+        {/*  <RowContainer style={{ marginTop: -14, marginLeft: 9 }}> */}
+        {/*    <AntDesign */}
+        {/*        name="exclamationcircleo" */}
+        {/*        size={10} */}
+        {/*        style={style.errorStyle} */}
+        {/*    /> */}
+        {/*    <Regular12SpoqaHanSansNeo */}
+        {/*        text={'동일한 닉네임이 존재합니다'} */}
+        {/*        style={style.errorStyle} */}
+        {/*    /> */}
+        {/* </RowContainer> */}
       </View>
     );
   }
@@ -154,6 +169,17 @@ const styles = (theme: ThemeType) =>
     },
     UnActiveSendButton: {
       backgroundColor: theme.colors.MAIN,
+    },
+    errorStyle: {
+      color: theme.colors.RED200,
+      marginRight: 6,
+      lineHeight: 18,
+    },
+    timer: {
+      color: theme.colors.GREEN400,
+      position: 'absolute',
+      right: 39 + 6,
+      top: 29,
     },
   });
 

@@ -136,8 +136,9 @@ const styles = (theme: ThemeType) =>
     resetInput: {
       color: theme.colors.GRAY900,
       fontSize: 16,
-      lineHeight: 24,
+      height: 24,
       flex: 1,
+      display: 'flex',
     },
     closeImage: {
       width: 18,
