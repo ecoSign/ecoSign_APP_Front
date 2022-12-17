@@ -9,6 +9,10 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 /* MainTab */
 export type MainTabParamList = {
   Home: undefined;
+  Gather: undefined;
+  Community: undefined;
+  Bookmark: undefined;
+  plus: undefined;
 };
 
 export type MainTabNavigationScreenParams =

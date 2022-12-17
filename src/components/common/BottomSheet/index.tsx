@@ -11,15 +11,19 @@ import {
 
 interface BottomSheetType {
   modalVisible: boolean;
-  setModalVisible: any;
+  setModalVisible: (value: boolean) => void;
   disable?: boolean;
   children: JSX.Element | JSX.Element[];
+  openDuration?: number;
+  closeDuration?: number;
 }
 function BottomSheet({
   modalVisible,
   setModalVisible,
   disable = false,
   children,
+  openDuration = 2000,
+  closeDuration = 2000,
 }: BottomSheetType) {
   const screenHeight = Dimensions.get('screen').height;
 
@@ -31,13 +35,13 @@ function BottomSheet({
 
   const resetBottomSheet = Animated.timing(panY, {
     toValue: 0,
-    duration: 2000,
+    duration: openDuration,
     useNativeDriver: true,
   });
 
   const closeBottomSheet = Animated.timing(panY, {
     toValue: screenHeight,
-    duration: 2000,
+    duration: closeDuration,
     useNativeDriver: true,
   });
 
@@ -61,6 +65,8 @@ function BottomSheet({
   useEffect(() => {
     if (modalVisible) {
       resetBottomSheet.start();
+    } else {
+      closeBottomSheet.start();
     }
   }, [modalVisible]);
 

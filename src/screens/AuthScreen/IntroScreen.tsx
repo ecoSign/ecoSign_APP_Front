@@ -33,7 +33,7 @@ function IntroScreen({ navigation }: any) {
   const [isPwVisible, setIsPwVisible] = useState(false);
 
   const onLogin = useCallback(() => {
-    Alert.alert('a');
+    navigation.navigate('Main');
   }, []);
 
   const ArrowMove = useRef(new Animated.Value(1)).current;
@@ -62,7 +62,7 @@ function IntroScreen({ navigation }: any) {
         <FlexContainer>
           <RowContainer style={styles.top}>
             <Image
-              source={require('../../assets/images/auth/textLogo.png')}
+              source={require('assets/images/auth/textLogo.png')}
               style={styles.logo}
               resizeMode="contain"
             />
@@ -79,7 +79,7 @@ function IntroScreen({ navigation }: any) {
           <UserInput
             value={userId}
             onChangeText={onChangeId}
-            leftIcon={require('../../assets/icons/auth/id.png')}
+            leftIcon={require('assets/icons/auth/id.png')}
             placeholder="아이디"
             onSubmitEditing={() => pwInput?.current?.focus()}
           />
@@ -87,8 +87,8 @@ function IntroScreen({ navigation }: any) {
             inputRef={pwInput}
             value={pw}
             onChangeText={onChangePw}
-            leftIcon={require('../../assets/icons/auth/pw.png')}
-            rightIcon={require('../../assets/icons/auth/id.png')}
+            leftIcon={require('assets/icons/auth/pw.png')}
+            rightIcon={require('assets/icons/auth/id.png')}
             placeholder="비밀번호"
             autoCorrect={false}
             secureTextEntry={!isPwVisible}
@@ -144,7 +144,7 @@ function IntroScreen({ navigation }: any) {
                   }}
                 >
                   <Image
-                    source={require('../../assets/icons/auth/beforeLogin.png')}
+                    source={require('assets/icons/auth/beforeLogin.png')}
                     resizeMode="contain"
                     style={{ width: 72, height: 28 }}
                   />
