@@ -19,6 +19,7 @@ function BottomPlusSheet() {
     <>
       <Touchable onPress={modalVisibleToggle}>
         <Image
+          // source={require('assets/icons/main/plus.png')}
           source={require('assets/icons/main/plus.png')}
           resizeMode="contain"
           style={style.plus}
