@@ -7,7 +7,7 @@ interface Type {
   style?: ViewPropTypes.style;
 }
 
-function RowContainer({ children, style }: Type) {
+export function RowContainer({ children, style }: Type) {
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', ...style }}>
       {children}

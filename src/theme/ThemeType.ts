@@ -6,6 +6,7 @@ export interface ThemeType {
     WHITE: string;
     // GRAY
     GRAY900: '#212121';
+    GRAY800: '#424242';
     GRAY700: '#616161';
     GRAY600: '#757575';
     GRAY500: '#9e9e9e';
