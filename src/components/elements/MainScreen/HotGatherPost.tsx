@@ -58,28 +58,27 @@ function HotGatherPost({ gather, onPress }: HotGatherPostType) {
                   style={styles.gray900Color}
                   numberOfLines={1}
                 />
-                <RowContainer>
-                  <Octicons
-                    name="people"
-                    size={16}
-                    style={styles.green400Color}
+                <RowContainer style={{ marginTop: 8 }}>
+                  <Image
+                    source={require('assets/icons/command/activePeople.png')}
+                    style={{ width: 14, height: 14, marginRight: 3 }}
+                    resizeMode="contain"
                   />
                   <Thin12SpoqaHanSansNeo
                     text="1/2"
                     style={{
                       ...styles.gray700Color,
-                      marginRight: 3,
-                      marginBottom: 8,
-                      marginTop: 3,
                     }}
                   />
                   <MaterialCommunityIcons
                     name="calendar-check-outline"
-                    size={16}
+                    size={14}
                     style={{
                       ...styles.green400Color,
                       marginRight: 3,
                       marginLeft: 15,
+                      width: 14,
+                      height: 14,
                     }}
                   />
                   <Thin12SpoqaHanSansNeo
@@ -125,6 +124,7 @@ const styleSheet = (theme: ThemeType) =>
       paddingLeft: 12,
       paddingBottom: 25,
       paddingRight: 17,
+      elevation: 1,
       shadowOffset: {
         width: 0,
         height: 0,

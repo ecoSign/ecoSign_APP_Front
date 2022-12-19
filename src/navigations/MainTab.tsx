@@ -78,9 +78,12 @@ function MainTab() {
         options={{
           title: '모임',
           tabBarIcon: ({ focused }) => (
-            <Octicons
-              name="people"
-              size={23}
+            <Image
+              source={
+                focused
+                  ? require('../assets/icons/command/activePeople.png')
+                  : require('../assets/icons/command/people.png')
+              }
               style={
                 focused
                   ? [style.icon, style.activeIcon]
