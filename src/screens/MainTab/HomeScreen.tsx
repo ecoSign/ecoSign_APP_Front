@@ -1,8 +1,10 @@
 import React from 'react';
 import { FlatList, Image, ScrollView, StyleSheet, View } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { Medium17GmarketSans } from '@components/common/Label/GmarketLabel';
+import ProfileHeaderLayout from '@components/common/Layouts/ProfileHeaderLayout';
 import Touchable from '@components/common/buttons/Touchable';
 import { FlexContainer } from '@components/common/containers/FlexContainer';
 import RowContainer from '@components/common/containers/RowContainer';
@@ -10,12 +12,15 @@ import { ScrollRowContainer } from '@components/common/containers/ScrollRowConta
 import CommunityPost from '@components/elements/MainScreen/CommunityPost';
 import HotGatherPost from '@components/elements/MainScreen/HotGatherPost';
 import NatureGather from '@components/elements/MainScreen/NatureGather';
+import { SCREEN_WIDTH } from '@constants/auth';
 import { GATHER } from '@constants/gatherList';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
 import {
   Regular12SpoqaHanSansNeo,
+  Regular14SpoqaHanSansNeo,
+  Regular16SpoqaHanSansNeo,
   Thin12SpoqaHanSansNeo,
 } from '@/components/common/Label/SpoqaHanSansNeoLabel';
 
@@ -28,149 +33,197 @@ function HomeScreen() {
   const onClickShowMoreHotGather = (item: any) => {};
 
   return (
-    <ScrollView style={{ flex: 1 }}>
-      <FlexContainer style={style.container}>
-        <RowContainer style={{ marginTop: 32 }}>
-          <Medium17GmarketSans
-            text="인기 모임 분야 "
-            style={style.gray900Color}
-          />
-          <Medium17GmarketSans text="TOP6" style={style.greenColor} />
-        </RowContainer>
-        <ScrollRowContainer
-          style={{
-            marginTop: 20,
-            marginRight: -16,
-            marginBottom: 39,
-          }}
-        >
-          <RowContainer>
-            <>
-              {GATHER.map((gather, index) => (
-                <Touchable key={index} style={style.communityBox}>
-                  <Image source={gather.image} style={style.community} />
-                  <Regular12SpoqaHanSansNeo
-                    text={gather.title}
-                    style={{
-                      ...style.gray800Color,
-                      marginTop: 6,
-                      marginBottom: 14,
-                    }}
-                  />
-                </Touchable>
-              ))}
-            </>
-            <Touchable style={style.showMore}>
-              <Regular12SpoqaHanSansNeo
-                text="더보기"
-                style={{ ...style.gray600Color, marginRight: 12 }}
-              />
-              <Entypo
-                name="chevron-small-right"
-                style={style.gray600Color}
-                size={16}
-              />
-            </Touchable>
-          </RowContainer>
-        </ScrollRowContainer>
-        <RowContainer style={{ marginBottom: 22 }}>
-          <Medium17GmarketSans text="커뮤 인기글!" style={style.gray900Color} />
-          <Image
-            source={require('assets/icons/command/fire.png')}
-            style={{ width: 20, height: 20 }}
-          />
-          <RowContainer style={{ flex: 1, justifyContent: 'flex-end' }}>
-            <Touchable style={{ flexDirection: 'row' }}>
-              <Regular12SpoqaHanSansNeo
-                text="더보기"
-                style={style.gray400Color}
-              />
-              <Entypo
-                name="chevron-small-right"
-                style={style.gray400Color}
-                size={16}
-              />
-            </Touchable>
-          </RowContainer>
-        </RowContainer>
-        <FlatList
-          data={[1, 2, 3]}
-          renderItem={({ item }) => (
-            <CommunityPost community={item} onPress={onClickCommunity} />
-          )}
-          keyExtractor={(item, index) => `key${index}`}
-          horizontal
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
+    <ProfileHeaderLayout>
+      <View style={style.bannerBox}>
+        <Image
+          source={require('assets/images/main/banner/eventBanner1.png')}
+          style={style.banner}
+          // resizeMode={'cover'}
         />
-        <RowContainer style={{ marginTop: 44, marginBottom: 15 }}>
-          <Medium17GmarketSans
-            text="분야별 HOT한 모임"
-            style={style.gray900Color}
-          />
-          <Image
-            source={require('assets/icons/command/light.png')}
-            style={{ width: 20, height: 20 }}
-          />
-        </RowContainer>
-        <FlatList
-          data={[1, 2, 3]}
-          renderItem={({ item }) => (
-            <HotGatherPost gather={item} onPress={onClickShowMoreHotGather} />
-          )}
-          keyExtractor={(item, index) => `key${index}`}
-          horizontal
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-          style={style.hotGatherBox}
+      </View>
+      <RowContainer style={{ marginTop: 32 }}>
+        <Medium17GmarketSans
+          text="인기 모임 분야 "
+          style={style.gray900Color}
         />
-        <RowContainer style={{ marginBottom: 24 }}>
-          <Medium17GmarketSans
-            text="환경 모임엔 뭐가 있을까?"
-            style={style.gray900Color}
-          />
-          <Image
-            source={require('assets/icons/command/book.png')}
-            style={{ width: 20, height: 20, marginLeft: 2 }}
-          />
-        </RowContainer>
-        <FlatList
-          data={[1, 2, 3]}
-          renderItem={({ item }) => (
-            <NatureGather gather={item} onPress={onClickShowMoreHotGather} />
-          )}
-          keyExtractor={(item, index) => `key${index}`}
-          horizontal
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-          style={{ marginBottom: 42 }}
-        />
-        <View style={{ marginBottom: 25 }}>
-          <RowContainer style={{ marginBottom: 3 }}>
-            <Medium17GmarketSans
-              text="이런 모임은 어떠세요?"
-              style={style.gray900Color}
+        <Medium17GmarketSans text="TOP6" style={style.greenColor} />
+      </RowContainer>
+      <ScrollRowContainer
+        style={{
+          marginTop: 20,
+          marginRight: -16,
+          marginBottom: 39,
+        }}
+      >
+        <RowContainer>
+          <>
+            {GATHER.map((gather, index) => (
+              <Touchable key={index} style={style.communityBox}>
+                <Image source={gather.image} style={style.community} />
+                <Regular12SpoqaHanSansNeo
+                  text={gather.title}
+                  style={{
+                    ...style.gray800Color,
+                    marginTop: 6,
+                    marginBottom: 14,
+                  }}
+                />
+              </Touchable>
+            ))}
+          </>
+          <Touchable style={style.showMore}>
+            <Regular12SpoqaHanSansNeo
+              text="더보기"
+              style={{ ...style.gray600Color, marginRight: 12 }}
             />
-            <Image
-              source={require('assets/icons/command/sparkles.png')}
-              style={{ width: 20, height: 20, marginLeft: 1 }}
+            <Entypo
+              name="chevron-small-right"
+              style={style.gray600Color}
+              size={16}
             />
-          </RowContainer>
-          <Thin12SpoqaHanSansNeo
-            text="에코유가 제안해드릴게요!"
-            style={{ ...style.gray700Color }}
+          </Touchable>
+        </RowContainer>
+      </ScrollRowContainer>
+      <RowContainer style={{ marginBottom: 22 }}>
+        <Medium17GmarketSans text="커뮤 인기글!" style={style.gray900Color} />
+        <Image
+          source={require('assets/icons/command/fire.png')}
+          style={{ width: 20, height: 20 }}
+        />
+        <RowContainer style={{ flex: 1, justifyContent: 'flex-end' }}>
+          <Touchable style={{ flexDirection: 'row' }}>
+            <Regular12SpoqaHanSansNeo
+              text="더보기"
+              style={style.gray400Color}
+            />
+            <Entypo
+              name="chevron-small-right"
+              style={style.gray400Color}
+              size={16}
+            />
+          </Touchable>
+        </RowContainer>
+      </RowContainer>
+      <FlatList
+        data={[1, 2, 3]}
+        renderItem={({ item }) => (
+          <CommunityPost community={item} onPress={onClickCommunity} />
+        )}
+        keyExtractor={(item, index) => `key${index}`}
+        horizontal
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      />
+      <RowContainer style={{ marginTop: 44, marginBottom: 15 }}>
+        <Medium17GmarketSans
+          text="분야별 HOT한 모임"
+          style={style.gray900Color}
+        />
+        <Image
+          source={require('assets/icons/command/light.png')}
+          style={{ width: 20, height: 20 }}
+        />
+      </RowContainer>
+      <FlatList
+        data={[1, 2, 3]}
+        renderItem={({ item }) => (
+          <HotGatherPost gather={item} onPress={onClickShowMoreHotGather} />
+        )}
+        keyExtractor={(item, index) => `key${index}`}
+        horizontal
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        style={style.hotGatherBox}
+      />
+      <RowContainer style={{ marginBottom: 24 }}>
+        <Medium17GmarketSans
+          text="환경 모임엔 뭐가 있을까?"
+          style={style.gray900Color}
+        />
+        <Image
+          source={require('assets/icons/command/book.png')}
+          style={{ width: 20, height: 20, marginLeft: 2 }}
+        />
+      </RowContainer>
+      <FlatList
+        data={[1, 2, 3]}
+        renderItem={({ item }) => (
+          <NatureGather gather={item} onPress={onClickShowMoreHotGather} />
+        )}
+        keyExtractor={(item, index) => `key${index}`}
+        horizontal
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        style={{ marginBottom: 42 }}
+      />
+      <View style={{ marginBottom: 25 }}>
+        <RowContainer style={{ marginBottom: 3 }}>
+          <Medium17GmarketSans
+            text="이런 모임은 어떠세요?"
+            style={style.gray900Color}
           />
-        </View>
-      </FlexContainer>
-    </ScrollView>
+          <Image
+            source={require('assets/icons/command/sparkles.png')}
+            style={{ width: 20, height: 20, marginLeft: 1 }}
+          />
+        </RowContainer>
+        <Thin12SpoqaHanSansNeo
+          text="에코유가 제안해드릴게요!"
+          style={{ ...style.gray700Color }}
+        />
+      </View>
+      <RowContainer style={style.wrapBox}>
+        {[
+          '서핑',
+          '원데이클래스',
+          '독서',
+          '손뜨개',
+          '플로깅',
+          '영상제작',
+          '유기견',
+          '등산',
+        ].map((data) => (
+          <View style={style.dotBox}>
+            <Regular14SpoqaHanSansNeo text={data} style={style.gray600Color} />
+          </View>
+        ))}
+      </RowContainer>
+      <Touchable
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+          marginTop: 4,
+        }}
+      >
+        <Regular16SpoqaHanSansNeo
+          text="모임 더 둘러보기"
+          style={{ ...style.green400Color, marginRight: 3 }}
+        />
+        <MaterialCommunityIcons
+          name="arrow-right"
+          style={{ ...style.green400Color }}
+          size={18}
+        />
+      </Touchable>
+    </ProfileHeaderLayout>
   );
 }
+const gap = 8;
 
 const styles = (theme: ThemeType) =>
   StyleSheet.create({
+    bannerBox: {
+      width: SCREEN_WIDTH - 32,
+      height: (SCREEN_WIDTH - 32) * 0.58,
+      marginTop: 12,
+    },
+    banner: {
+      width: '100%',
+      height: '100%',
+    },
     container: {
       paddingHorizontal: 16,
-      paddingBottom: 72,
+      paddingBottom: 66,
     },
     showMore: {
       backgroundColor: theme.colors.GRAY200,
@@ -187,6 +240,7 @@ const styles = (theme: ThemeType) =>
     gray600Color: { color: theme.colors.GRAY600 },
     gray400Color: { color: theme.colors.GRAY400 },
     greenColor: { color: theme.colors.GREEN500 },
+    green400Color: { color: theme.colors.GREEN400 },
     communityBox: {
       marginRight: 20,
       alignItems: 'center',
@@ -203,6 +257,23 @@ const styles = (theme: ThemeType) =>
     },
     gray700Color: {
       color: theme.colors.GRAY700,
+    },
+    dotBox: {
+      justifyContent: 'center',
+      borderWidth: 1,
+      borderRadius: 20,
+      borderColor: theme.colors.GRAY400,
+      paddingHorizontal: 14,
+      paddingVertical: 4.5,
+      borderStyle: 'dashed',
+      marginBottom: 11,
+      marginHorizontal: gap / 2,
+    },
+    wrapBox: {
+      flex: 1,
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      paddingHorizontal: gap / -2,
     },
   });
 export default HomeScreen;
