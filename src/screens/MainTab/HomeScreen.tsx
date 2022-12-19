@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList, Image, ScrollView, StyleSheet, View } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -6,7 +6,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { Medium17GmarketSans } from '@components/common/Label/GmarketLabel';
 import ProfileHeaderLayout from '@components/common/Layouts/ProfileHeaderLayout';
 import Touchable from '@components/common/buttons/Touchable';
-import { FlexContainer } from '@components/common/containers/FlexContainer';
 import RowContainer from '@components/common/containers/RowContainer';
 import { ScrollRowContainer } from '@components/common/containers/ScrollRowContainer';
 import CommunityPost from '@components/elements/MainScreen/CommunityPost';
@@ -14,6 +13,7 @@ import HotGatherPost from '@components/elements/MainScreen/HotGatherPost';
 import NatureGather from '@components/elements/MainScreen/NatureGather';
 import { SCREEN_WIDTH } from '@constants/auth';
 import { GATHER } from '@constants/gatherList';
+import { BANNER_LIST } from '@constants/main/banner';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
@@ -34,13 +34,27 @@ function HomeScreen() {
 
   return (
     <ProfileHeaderLayout>
-      <View style={style.bannerBox}>
-        <Image
-          source={require('assets/images/main/banner/eventBanner1.png')}
-          style={style.banner}
-          // resizeMode={'cover'}
-        />
-      </View>
+      <ScrollView
+        scrollEventThrottle={50}
+        showsHorizontalScrollIndicator={false}
+        pagingEnabled
+        horizontal
+        style={{
+          marginHorizontal: -16,
+        }}
+      >
+        {BANNER_LIST.map((banner, index) => (
+          <Touchable style={style.bannerBox} key={index}>
+            <Image source={banner} style={style.banner} />
+            <RowContainer style={style.order}>
+              <Regular12SpoqaHanSansNeo
+                text={`${index + 1}/${BANNER_LIST.length}`}
+                style={{ ...style.whiteColor }}
+              />
+            </RowContainer>
+          </Touchable>
+        ))}
+      </ScrollView>
       <RowContainer style={{ marginTop: 32 }}>
         <Medium17GmarketSans
           text="인기 모임 분야 "
@@ -213,9 +227,11 @@ const gap = 8;
 const styles = (theme: ThemeType) =>
   StyleSheet.create({
     bannerBox: {
-      width: SCREEN_WIDTH - 32,
+      width: SCREEN_WIDTH,
       height: (SCREEN_WIDTH - 32) * 0.58,
       marginTop: 12,
+      paddingHorizontal: 16,
+      position: 'relative',
     },
     banner: {
       width: '100%',
@@ -241,6 +257,7 @@ const styles = (theme: ThemeType) =>
     gray400Color: { color: theme.colors.GRAY400 },
     greenColor: { color: theme.colors.GREEN500 },
     green400Color: { color: theme.colors.GREEN400 },
+    whiteColor: { color: theme.colors.WHITE },
     communityBox: {
       marginRight: 20,
       alignItems: 'center',
@@ -274,6 +291,16 @@ const styles = (theme: ThemeType) =>
       flexWrap: 'wrap',
       justifyContent: 'center',
       paddingHorizontal: gap / -2,
+    },
+    order: {
+      position: 'absolute',
+      bottom: 12,
+      left: 28,
+      paddingHorizontal: 8,
+      backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      borderRadius: 5,
+      height: 24,
+      justifyContent: 'center',
     },
   });
 export default HomeScreen;
