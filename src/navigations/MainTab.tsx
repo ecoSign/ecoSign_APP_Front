@@ -129,9 +129,12 @@ function MainTab() {
         options={{
           title: '북마크',
           tabBarIcon: ({ focused }) => (
-            <MaterialCommunityIcons
-              name="cards-heart-outline"
-              size={23}
+            <Image
+              source={
+                focused
+                  ? require('../assets/icons/command/activeHeart.png')
+                  : require('../assets/icons/command/heart.png')
+              }
               style={
                 focused
                   ? [style.icon, style.activeIcon]
