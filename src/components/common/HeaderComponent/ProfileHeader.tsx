@@ -1,5 +1,13 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  StyleProp,
+  StyleSheet,
+  Text,
+  View,
+  ViewPropTypes,
+  ViewStyle,
+} from 'react-native';
 
 import { Regular14SpoqaHanSansNeo } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import Touchable from '@components/common/buttons/Touchable';
@@ -7,11 +15,13 @@ import RowContainer from '@components/common/containers/RowContainer';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
-function ProfileHeader() {
+interface ProfileHeaderType {
+  headerStyle?: ViewStyle;
+}
+function ProfileHeader({ headerStyle }: ProfileHeaderType) {
   const style = useThemedStyles(styles);
-
   return (
-    <RowContainer style={style.container}>
+    <RowContainer style={{ ...style.container, ...headerStyle }}>
       <Image
         source={{ uri: 'https://reactjs.org/logo-og.png' }}
         resizeMode="cover"

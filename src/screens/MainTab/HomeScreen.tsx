@@ -196,8 +196,8 @@ function HomeScreen() {
           '영상제작',
           '유기견',
           '등산',
-        ].map((data) => (
-          <View style={style.dotBox}>
+        ].map((data, index) => (
+          <View style={style.dotBox} key={index}>
             <Regular14SpoqaHanSansNeo text={data} style={style.gray600Color} />
           </View>
         ))}
@@ -236,6 +236,7 @@ const styles = (theme: ThemeType) =>
     banner: {
       width: '100%',
       height: '100%',
+      borderRadius: 14,
     },
     container: {
       paddingHorizontal: 16,

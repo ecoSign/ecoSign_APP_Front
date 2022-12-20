@@ -16,18 +16,21 @@ import useThemedStyles from '@theme/useThemedStyles';
 interface ProfileHeaderLayoutType {
   header?: JSX.Element;
   children: JSX.Element | JSX.Element[];
-  headerStyle?: StyleProp<ViewStyle>;
+  containerStyle?: StyleProp<ViewStyle>;
 }
 function ProfileHeaderLayout({
   children,
   header = <ProfileHeader />,
+  containerStyle,
 }: ProfileHeaderLayoutType) {
   const style = useThemedStyles(styles);
 
   return (
     <ScrollView style={{ flex: 1 }}>
       {header}
-      <FlexContainer style={style.container}>{children}</FlexContainer>
+      <FlexContainer style={{ ...style.container, containerStyle }}>
+        {children}
+      </FlexContainer>
     </ScrollView>
   );
 }

@@ -1,10 +1,9 @@
 import React, { ReactChild, ReactChildren } from 'react';
-import { View, ViewPropTypes } from 'react-native';
+import { StyleProp, View, ViewPropTypes, ViewStyle } from 'react-native';
 
 interface Type {
   children?: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
-  // @ts-ignore
-  style?: ViewPropTypes.style;
+  style?: ViewStyle;
 }
 
 export function RowContainer({ children, style }: Type) {
