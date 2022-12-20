@@ -16,7 +16,7 @@ import useThemedStyles from '@theme/useThemedStyles';
 interface ProfileHeaderLayoutType {
   header?: JSX.Element;
   children: JSX.Element | JSX.Element[];
-  containerStyle?: StyleProp<ViewStyle>;
+  containerStyle?: ViewStyle;
 }
 function ProfileHeaderLayout({
   children,
@@ -28,7 +28,7 @@ function ProfileHeaderLayout({
   return (
     <ScrollView style={{ flex: 1 }}>
       {header}
-      <FlexContainer style={{ ...style.container, containerStyle }}>
+      <FlexContainer style={{ ...style.container, ...containerStyle }}>
         {children}
       </FlexContainer>
     </ScrollView>

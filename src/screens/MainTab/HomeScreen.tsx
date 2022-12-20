@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { FlatList, Image, ScrollView, StyleSheet, View } from 'react-native';
+import React from 'react';
+import { FlatList, Image, StyleSheet, View } from 'react-native';
+import Swiper from 'react-native-swiper';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -33,28 +34,28 @@ function HomeScreen() {
   const onClickShowMoreHotGather = (item: any) => {};
 
   return (
-    <ProfileHeaderLayout>
-      <ScrollView
-        scrollEventThrottle={50}
-        showsHorizontalScrollIndicator={false}
-        pagingEnabled
-        horizontal
-        style={{
-          marginHorizontal: -16,
-        }}
-      >
-        {BANNER_LIST.map((banner, index) => (
-          <Touchable style={style.bannerBox} key={index}>
-            <Image source={banner} style={style.banner} />
-            <RowContainer style={style.order}>
-              <Regular12SpoqaHanSansNeo
-                text={`${index + 1}/${BANNER_LIST.length}`}
-                style={{ ...style.whiteColor }}
-              />
-            </RowContainer>
-          </Touchable>
-        ))}
-      </ScrollView>
+    <ProfileHeaderLayout containerStyle={{ paddingTop: 12 }}>
+      <View style={{ marginHorizontal: -16 }}>
+        <Swiper
+          autoplay
+          showsPagination={false}
+          width={SCREEN_WIDTH}
+          height={(SCREEN_WIDTH - 32) * 0.58}
+        >
+          {BANNER_LIST.map((banner, index) => (
+            <Touchable style={style.bannerBox} key={index}>
+              <Image source={banner} style={style.banner} />
+              <RowContainer style={style.order}>
+                <Regular12SpoqaHanSansNeo
+                  text={`${index + 1}/${BANNER_LIST.length}`}
+                  style={{ ...style.whiteColor }}
+                />
+              </RowContainer>
+            </Touchable>
+          ))}
+        </Swiper>
+      </View>
+
       <RowContainer style={{ marginTop: 32 }}>
         <Medium17GmarketSans
           text="인기 모임 분야 "
@@ -227,11 +228,8 @@ const gap = 8;
 const styles = (theme: ThemeType) =>
   StyleSheet.create({
     bannerBox: {
-      width: SCREEN_WIDTH,
-      height: (SCREEN_WIDTH - 32) * 0.58,
-      marginTop: 12,
-      paddingHorizontal: 16,
       position: 'relative',
+      paddingHorizontal: 16,
     },
     banner: {
       width: '100%',
@@ -302,6 +300,30 @@ const styles = (theme: ThemeType) =>
       borderRadius: 5,
       height: 24,
       justifyContent: 'center',
+    },
+    wrapper: {},
+    slide1: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#9DD6EB',
+    },
+    slide2: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#97CAE5',
+    },
+    slide3: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#92BBD9',
+    },
+    text: {
+      color: '#fff',
+      fontSize: 30,
+      fontWeight: 'bold',
     },
   });
 export default HomeScreen;
