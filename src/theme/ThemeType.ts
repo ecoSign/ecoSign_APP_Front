@@ -39,6 +39,10 @@ export interface ThemeType {
     GRAY200: '#EEEEEE';
     GRAY100: '#F5F5F5';
     GRAY50: '#FAFAFA';
+
+    // BlUE GRAY
+    BLUEGRAY50: '#ECEFF1';
+
     //  RED
     RED900: '#B71C1C';
     RED800: '#C62828';

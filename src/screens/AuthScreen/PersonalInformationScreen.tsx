@@ -9,15 +9,12 @@ import { StyleSheet, View } from 'react-native';
 
 import {
   Regular12SpoqaHanSansNeo,
-  Regular14SpoqaHanSansNeo,
   Regular16SpoqaHanSansNeo,
   Regular18SpoqaHanSansNeo,
   Thin18SpoqaHanSansNeo,
 } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import SignUpLayout from '@components/common/Layouts/SignUpLayout';
-import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
-import { HasResetInput } from '@components/common/inputs/Inputs';
 import TitleInput from '@components/elements/AuthScreen/TitleInput';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';

@@ -55,9 +55,7 @@ function SocialChoiceScreen({ navigation }: any) {
               style={style.socialImage}
               resizeMode="contain"
             />
-            <RowContainer
-              style={{ width: 122, textAlign: 'left', marginLeft: 13 }}
-            >
+            <RowContainer style={{ width: 122, marginLeft: 13 }}>
               <Bold16SpoqaHanSansNeo text={data.name} style={style.font} />
               <Regular16SpoqaHanSansNeo text="로 시작하기" style={style.font} />
             </RowContainer>

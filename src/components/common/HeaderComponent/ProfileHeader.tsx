@@ -12,6 +12,7 @@ import {
 import { Regular14SpoqaHanSansNeo } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
@@ -19,7 +20,9 @@ interface ProfileHeaderType {
   headerStyle?: ViewStyle;
 }
 function ProfileHeader({ headerStyle }: ProfileHeaderType) {
+  const navigation: NavigationProp<any, any> = useNavigation();
   const style = useThemedStyles(styles);
+
   return (
     <RowContainer style={{ ...style.container, ...headerStyle }}>
       <Image
@@ -29,7 +32,12 @@ function ProfileHeader({ headerStyle }: ProfileHeaderType) {
       />
       <Regular14SpoqaHanSansNeo text="너구리" style={style.gray900Color} />
       <RowContainer style={{ justifyContent: 'flex-end', flex: 1 }}>
-        <Touchable style={{ marginRight: 20 }}>
+        <Touchable
+          style={{ marginRight: 20 }}
+          onPress={() => {
+            navigation.navigate('Alert');
+          }}
+        >
           <Image
             source={require('assets/icons/command/magnifyingGlass.png')}
             style={{ ...style.icon }}
