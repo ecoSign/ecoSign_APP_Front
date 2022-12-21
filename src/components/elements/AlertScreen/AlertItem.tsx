@@ -16,10 +16,12 @@ function AlertItem() {
       <Regular14SpoqaHanSansNeo
         text="[공지] 업데이트 일정을 안내드립니다."
         style={{ ...styles.gray900Color, marginBottom: 10 }}
+        numberOfLines={1}
       />
       <Regular12SpoqaHanSansNeo
         text="[공지] 업데이트 일정을 안내드립니다."
         style={{ ...styles.gray400Color }}
+        numberOfLines={2}
       />
     </View>
   );

@@ -32,18 +32,17 @@ function ProfileHeader({ headerStyle }: ProfileHeaderType) {
       />
       <Regular14SpoqaHanSansNeo text="너구리" style={style.gray900Color} />
       <RowContainer style={{ justifyContent: 'flex-end', flex: 1 }}>
-        <Touchable
-          style={{ marginRight: 20 }}
-          onPress={() => {
-            navigation.navigate('Alert');
-          }}
-        >
+        <Touchable style={{ marginRight: 20 }}>
           <Image
             source={require('assets/icons/command/magnifyingGlass.png')}
             style={{ ...style.icon }}
           />
         </Touchable>
-        <Touchable>
+        <Touchable
+          onPress={() => {
+            navigation.navigate('Alert');
+          }}
+        >
           <Image
             source={require('assets/icons/command/bell.png')}
             style={style.icon}

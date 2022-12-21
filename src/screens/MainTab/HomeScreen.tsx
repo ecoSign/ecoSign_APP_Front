@@ -128,6 +128,7 @@ function HomeScreen() {
         horizontal
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
+        style={{ marginRight: -16 }}
       />
       <RowContainer style={{ marginTop: 44, marginBottom: 15 }}>
         <Medium17GmarketSans
