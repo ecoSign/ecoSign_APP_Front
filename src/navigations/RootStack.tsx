@@ -1,10 +1,10 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
 import Touchable from '@components/common/buttons/Touchable';
 import { AlertStack } from '@navigations/AlertStack';
 import AuthStack from '@navigations/AuthStack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from '@screens/SplashScreen';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
@@ -21,6 +21,8 @@ function RootStack() {
       initialRouteName="Splash"
       screenOptions={{
         headerShown: false,
+        headerShadowVisible: false,
+        headerTitleAlign: 'center',
       }}
     >
       <Stack.Screen name="Splash" component={SplashScreen} />
@@ -30,7 +32,6 @@ function RootStack() {
         name="Alert"
         component={AlertStack}
         options={({ navigation, route }) => ({
-          headerHideShadow: true,
           headerShown: true,
           headerTitleStyle: style.title,
           title: '알림',
