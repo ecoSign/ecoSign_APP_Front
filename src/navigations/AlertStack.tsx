@@ -20,7 +20,6 @@ export function AlertStack() {
         tabBarActiveTintColor: '#9CCC65',
         tabBarStyle: { borderTopWidth: 0, borderColor: 'red' },
         tabBarIndicatorStyle: { backgroundColor: '#9CCC65' },
-        lazy: true,
       }}
     >
       <Tab.Screen

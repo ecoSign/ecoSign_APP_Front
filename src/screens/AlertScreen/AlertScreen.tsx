@@ -27,7 +27,9 @@ function AlertScreen({ alert }: AlertScreenType) {
       }
     >
       {!emptyAlert ? (
-        alert?.map((data: any, index: number) => <AlertItem key={index} />)
+        alert?.map((data: any, index: number) => (
+          <AlertItem key={index} isAlreadyRead={index === 2} />
+        ))
       ) : (
         <View style={styles.emptyBox}>
           <Image
