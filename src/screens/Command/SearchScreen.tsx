@@ -1,5 +1,6 @@
-import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import React, { useCallback } from 'react';
+import { Image, ScrollView, StyleSheet } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   Regular11SpoqaHanSansNeo,
@@ -13,24 +14,52 @@ import RowContainer from '@components/common/containers/RowContainer';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
+import {
+  addKeyword,
+  removeKeyword,
+  resetKeyword,
+} from '@/redux/slices/keywordSlice';
+import useAppStore from '@/redux/useAppStore';
+
 const gap = 8;
 const solidGap = 6;
 
 function SearchScreen() {
+  const { keywordList } = useAppStore((state) => state.keywordList);
+
   const styles = useThemedStyles(styleSheets);
+  const dispatch = useDispatch();
+
+  const onSearchKeyword = useCallback(
+    (keyword: string) => {
+      dispatch(addKeyword(keyword));
+    },
+    [keywordList],
+  );
+
+  const onDeleteSearchKeyword = useCallback(
+    (keyword: string) => {
+      dispatch(removeKeyword(keyword));
+    },
+    [keywordList],
+  );
 
   return (
     <FlexContainer style={styles.container}>
       <RowContainer style={{ height: 65 }}>
-        <SearchBar />
+        <SearchBar onPress={onSearchKeyword} />
       </RowContainer>
-      <FlexContainer style={styles.halfContainer}>
+      <ScrollView style={styles.halfContainer}>
         <RowContainer style={styles.titleBox}>
           <Regular18SpoqaHanSansNeo
             text="최근검색어"
             style={styles.gray900Color}
           />
-          <Touchable>
+          <Touchable
+            onPress={() => {
+              dispatch(resetKeyword());
+            }}
+          >
             <Regular11SpoqaHanSansNeo
               text="전체삭제"
               style={styles.gray600Color}
@@ -38,32 +67,27 @@ function SearchScreen() {
           </Touchable>
         </RowContainer>
         <RowContainer style={styles.wrapBox}>
-          {[
-            '서핑',
-            '원데이클래스',
-            '독서',
-            '손뜨개',
-            '플로깅',
-            '영상제작',
-            '유기견',
-            '등산',
-          ].map((data, index) => (
-            <RowContainer style={styles.dotBox} key={index}>
+          {keywordList?.map((data: string, index: number) => (
+            <Touchable style={styles.dotBox} key={index}>
               <Regular14SpoqaHanSansNeo
                 text={data}
                 style={{ ...styles.gray900Color, marginRight: 12 }}
               />
-              <Touchable>
+              <Touchable
+                onPress={() => {
+                  onDeleteSearchKeyword(data);
+                }}
+              >
                 <Image
                   source={require('assets/icons/command/closeGray.png')}
                   style={styles.close}
                 />
               </Touchable>
-            </RowContainer>
+            </Touchable>
           ))}
         </RowContainer>
-      </FlexContainer>
-      <FlexContainer style={{ ...styles.halfContainer }}>
+      </ScrollView>
+      <ScrollView style={{ ...styles.halfContainer }}>
         <RowContainer style={styles.titleBox}>
           <Regular18SpoqaHanSansNeo
             text="인기 검색어"
@@ -81,15 +105,15 @@ function SearchScreen() {
             '유기견',
             '등산',
           ].map((data, index) => (
-            <RowContainer style={styles.solidBox} key={index}>
+            <Touchable style={styles.solidBox} key={index}>
               <Regular14SpoqaHanSansNeo
                 text={data}
                 style={{ ...styles.gray900Color }}
               />
-            </RowContainer>
+            </Touchable>
           ))}
         </RowContainer>
-      </FlexContainer>
+      </ScrollView>
     </FlexContainer>
   );
 }
@@ -117,6 +141,8 @@ const styleSheets = (theme: ThemeType) =>
       justifyContent: 'space-between',
     },
     dotBox: {
+      flexDirection: 'row',
+      alignItems: 'center',
       justifyContent: 'space-between',
       borderRadius: 8,
       paddingHorizontal: 8,
@@ -143,6 +169,8 @@ const styleSheets = (theme: ThemeType) =>
     },
     //
     solidBox: {
+      flexDirection: 'row',
+      alignItems: 'center',
       borderWidth: 1,
       borderColor: theme.colors.GRAY200,
       borderRadius: 20,

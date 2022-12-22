@@ -18,11 +18,9 @@ const persistConfig: any = {
   // localStorage에 저장합니다.
   storage: AsyncStorage,
   // auth, board, studio 3개의 reducer 중에 auth reducer만 localstorage에 저장합니다.
-  whitelist: ['auth'],
+  whitelist: ['auth', 'keywordList'],
   // blacklist -> 그것만 제외합니다
 };
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const middlewares = getDefaultMiddleware({
   serializableCheck: {
@@ -35,14 +33,11 @@ if (__DEV__) {
   middlewares.push(createDebugger());
 }
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: middlewares,
-  // devTools: process.env.NODE_ENV !== 'production',
+  devTools: process.env.NODE_ENV !== 'production',
 });
 export const persistor = persistStore(store);
-
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;

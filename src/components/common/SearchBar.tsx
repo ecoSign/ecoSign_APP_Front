@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
@@ -7,10 +8,19 @@ import useInput from '@hooks/useInput';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
-function SearchBar() {
+interface SearchBarType {
+  onPress: any;
+}
+function SearchBar({ onPress }: SearchBarType) {
   const styles = useThemedStyles(styleSheets);
   const [keyword, onChangeKeyword, setKeyword] = useInput('');
 
+  const onSearch = () => {
+    if (keyword.length > 0) {
+      onPress(keyword);
+      setKeyword('');
+    }
+  };
   return (
     <RowContainer style={styles.container}>
       <TextInput
@@ -19,8 +29,11 @@ function SearchBar() {
         placeholder="키워드로 쉽게 검색해보세요!"
         placeholderTextColor="#B7B7B7"
         onChangeText={onChangeKeyword}
+        onSubmitEditing={onSearch}
+        returnKeyLabel="send"
+        returnKeyType="send"
       />
-      <Touchable>
+      <Touchable onPress={onSearch}>
         <Image
           source={require('assets/icons/command/magnifyingGlass.png')}
           style={styles.icon}
