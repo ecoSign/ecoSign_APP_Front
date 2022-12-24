@@ -5,6 +5,7 @@ import Touchable from '@components/common/buttons/Touchable';
 import { AlertStack } from '@navigations/AlertStack';
 import AuthStack from '@navigations/AuthStack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SearchResultsScreen from '@screens/Command/SearchResultsScreen';
 import SearchScreen from '@screens/Command/SearchScreen';
 import SplashScreen from '@screens/SplashScreen';
 import { ThemeType } from '@theme/ThemeType';
@@ -54,6 +55,7 @@ function RootStack() {
         })}
       />
       <Stack.Screen name="Search" component={SearchScreen} />
+      <Stack.Screen name="SearchResults" component={SearchResultsScreen} />
     </Stack.Navigator>
   );
 }

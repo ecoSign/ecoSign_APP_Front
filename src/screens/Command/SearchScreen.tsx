@@ -24,18 +24,11 @@ import useAppStore from '@/redux/useAppStore';
 const gap = 8;
 const solidGap = 6;
 
-function SearchScreen() {
+function SearchScreen({ navigation }: { navigation: any }) {
   const { keywordList } = useAppStore((state) => state.keywordList);
 
   const styles = useThemedStyles(styleSheets);
   const dispatch = useDispatch();
-
-  const onSearchKeyword = useCallback(
-    (keyword: string) => {
-      dispatch(addKeyword(keyword));
-    },
-    [keywordList],
-  );
 
   const onDeleteSearchKeyword = useCallback(
     (keyword: string) => {
@@ -47,7 +40,7 @@ function SearchScreen() {
   return (
     <FlexContainer style={styles.container}>
       <RowContainer style={{ height: 65 }}>
-        <SearchBar onPress={onSearchKeyword} />
+        <SearchBar />
       </RowContainer>
       <ScrollView style={styles.halfContainer}>
         <RowContainer style={styles.titleBox}>

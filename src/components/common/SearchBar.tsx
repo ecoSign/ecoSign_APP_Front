@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
 import useInput from '@hooks/useInput';
+import { useNavigation } from '@react-navigation/native';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
-interface SearchBarType {
-  onPress: any;
-}
-function SearchBar({ onPress }: SearchBarType) {
+import { addKeyword } from '@/redux/slices/keywordSlice';
+
+function SearchBar() {
+  const navigation: any = useNavigation();
   const styles = useThemedStyles(styleSheets);
+  const dispatch = useDispatch();
+
   const [keyword, onChangeKeyword, setKeyword] = useInput('');
 
   const onSearch = () => {
     if (keyword.length > 0) {
-      onPress(keyword);
+      dispatch(addKeyword(keyword));
+      navigation.navigate('SearchResults', { keyword });
       setKeyword('');
     }
   };
