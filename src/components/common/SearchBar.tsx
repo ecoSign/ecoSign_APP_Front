@@ -8,6 +8,7 @@ import useInput from '@hooks/useInput';
 import { useNavigation } from '@react-navigation/native';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
+import { SearchKeyword } from '@utils/SearchKeyword';
 
 import { addKeyword } from '@/redux/slices/keywordSlice';
 
@@ -20,11 +21,11 @@ function SearchBar() {
 
   const onSearch = () => {
     if (keyword.length > 0) {
-      dispatch(addKeyword(keyword));
-      navigation.navigate('SearchResults', { keyword });
+      SearchKeyword(keyword, dispatch, navigation);
       setKeyword('');
     }
   };
+
   return (
     <RowContainer style={styles.container}>
       <TextInput

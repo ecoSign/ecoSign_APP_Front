@@ -13,12 +13,9 @@ import { FlexContainer } from '@components/common/containers/FlexContainer';
 import RowContainer from '@components/common/containers/RowContainer';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
+import { SearchKeyword } from '@utils/SearchKeyword';
 
-import {
-  addKeyword,
-  removeKeyword,
-  resetKeyword,
-} from '@/redux/slices/keywordSlice';
+import { removeKeyword, resetKeyword } from '@/redux/slices/keywordSlice';
 import useAppStore from '@/redux/useAppStore';
 
 const gap = 8;
@@ -36,6 +33,10 @@ function SearchScreen({ navigation }: { navigation: any }) {
     },
     [keywordList],
   );
+
+  const onPressKeyWord = (keyword: string) => {
+    SearchKeyword(keyword, dispatch, navigation);
+  };
 
   return (
     <FlexContainer style={styles.container}>
@@ -61,7 +62,13 @@ function SearchScreen({ navigation }: { navigation: any }) {
         </RowContainer>
         <RowContainer style={styles.wrapBox}>
           {keywordList?.map((data: string, index: number) => (
-            <Touchable style={styles.dotBox} key={index}>
+            <Touchable
+              style={styles.dotBox}
+              key={index}
+              onPress={() => {
+                onPressKeyWord(data);
+              }}
+            >
               <Regular14SpoqaHanSansNeo
                 text={data}
                 style={{ ...styles.gray900Color, marginRight: 12 }}
@@ -98,7 +105,13 @@ function SearchScreen({ navigation }: { navigation: any }) {
             '유기견',
             '등산',
           ].map((data, index) => (
-            <Touchable style={styles.solidBox} key={index}>
+            <Touchable
+              style={styles.solidBox}
+              key={index}
+              onPress={() => {
+                onPressKeyWord(data);
+              }}
+            >
               <Regular14SpoqaHanSansNeo
                 text={data}
                 style={{ ...styles.gray900Color }}
