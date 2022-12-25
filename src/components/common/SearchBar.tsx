@@ -12,7 +12,10 @@ import { SearchKeyword } from '@utils/SearchKeyword';
 
 import { addKeyword } from '@/redux/slices/keywordSlice';
 
-function SearchBar() {
+interface SearchBarType {
+  style?: any;
+}
+function SearchBar({ style }: SearchBarType) {
   const navigation: any = useNavigation();
   const styles = useThemedStyles(styleSheets);
   const dispatch = useDispatch();
@@ -27,7 +30,7 @@ function SearchBar() {
   };
 
   return (
-    <RowContainer style={styles.container}>
+    <RowContainer style={{ ...styles.container, ...style }}>
       <TextInput
         value={keyword}
         style={[styles.inputStyle]}

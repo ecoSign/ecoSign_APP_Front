@@ -3,8 +3,8 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import {
+  Light14SpoqaHanSansNeo,
   Light18SpoqaHanSansNeo,
-  Regular14SpoqaHanSansNeo,
 } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
@@ -47,7 +47,7 @@ function NoneResult({ keyword }: { keyword: string }) {
         />
       </RowContainer>
       <View style={styles.recommendBox}>
-        <Regular14SpoqaHanSansNeo
+        <Light14SpoqaHanSansNeo
           text="이런 검색어는 어떠세요?"
           style={{ ...styles.gray700Color, marginBottom: 23 }}
         />
@@ -69,10 +69,7 @@ function NoneResult({ keyword }: { keyword: string }) {
                 onPressKeyWord(data);
               }}
             >
-              <Regular14SpoqaHanSansNeo
-                text={data}
-                style={styles.gray900Color}
-              />
+              <Light14SpoqaHanSansNeo text={data} style={styles.gray900Color} />
             </Touchable>
           ))}
         </RowContainer>
@@ -115,7 +112,6 @@ const styleSheets = (theme: ThemeType) =>
       paddingVertical: 14,
       paddingTop: 23,
       paddingBottom: 25,
-      width: '100%',
       alignItems: 'center',
     },
     dotBox: {
@@ -130,7 +126,6 @@ const styleSheets = (theme: ThemeType) =>
       backgroundColor: theme.colors.WHITE,
     },
     wrapBox: {
-      flex: 1,
       flexWrap: 'wrap',
       justifyContent: 'center',
       paddingHorizontal: gap / -2,

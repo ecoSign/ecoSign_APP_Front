@@ -135,4 +135,5 @@ export const COMMON_COLOR = {
   ...CYAN_LIST,
   ...BLUEGRAY_LIST,
   WHITE: '#fff',
+  BLACK: '#000',
 };

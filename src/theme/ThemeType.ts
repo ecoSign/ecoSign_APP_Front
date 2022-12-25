@@ -4,6 +4,7 @@ export interface ThemeType {
     ERROR: string;
     DISABLE: string;
     WHITE: string;
+    BLACK: string;
 
     // GREEN
     GREEN900: '#33691E';
