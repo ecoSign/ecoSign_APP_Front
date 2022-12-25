@@ -77,7 +77,11 @@ function SearchResultsScreen({ navigation, route }: SearchResultsScreenType) {
             data={[1, 2, 3]}
             renderItem={
               ({ item }) =>
-                isCommunity ? <CommunityListItem /> : <GatherListItem />
+                isCommunity ? (
+                  <CommunityListItem keyword={keyword} />
+                ) : (
+                  <GatherListItem />
+                )
               // <CommunityPost community={item} onPress={onClickCommunity} />
             }
             keyExtractor={(item, index) => `key${index}`}
