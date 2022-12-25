@@ -23,10 +23,8 @@ const keywordSlice = createSlice({
         state.keywordList = state.keywordList.filter(
           (data: string) => data !== action.payload,
         );
-        state.keywordList.unshift(action.payload);
-      } else {
-        state.keywordList.push(action.payload);
       }
+      state.keywordList.unshift(action.payload);
     },
     removeKeyword: (state: KeywordListState, action: PayloadAction<string>) => {
       state.keywordList = state.keywordList.filter(
