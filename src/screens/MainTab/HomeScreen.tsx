@@ -3,6 +3,7 @@ import { FlatList, Image, StyleSheet, View } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useDispatch } from 'react-redux';
 
 import { Medium17GmarketSans } from '@components/common/Label/GmarketLabel';
 import ProfileHeaderLayout from '@components/common/Layouts/ProfileHeaderLayout';
@@ -17,6 +18,7 @@ import { GATHER } from '@constants/gatherList';
 import { BANNER_LIST } from '@constants/main/banner';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
+import { SearchKeyword } from '@utils/SearchKeyword';
 
 import {
   Regular12SpoqaHanSansNeo,
@@ -25,13 +27,17 @@ import {
   Thin12SpoqaHanSansNeo,
 } from '@/components/common/Label/SpoqaHanSansNeoLabel';
 
-function HomeScreen() {
+function HomeScreen({ navigation }: { navigation: any }) {
   const style = useThemedStyles(styles);
-
+  const dispatch = useDispatch();
   const onClickCommunity = (item: any) => {
     console.log('test');
   };
   const onClickShowMoreHotGather = (item: any) => {};
+
+  const onPressKeyWord = (keyword: string) => {
+    SearchKeyword(keyword, dispatch, navigation);
+  };
 
   return (
     <ProfileHeaderLayout containerStyle={{ paddingTop: 12 }}>
@@ -199,9 +205,15 @@ function HomeScreen() {
           '유기견',
           '등산',
         ].map((data, index) => (
-          <View style={style.dotBox} key={index}>
+          <Touchable
+            style={style.dotBox}
+            key={index}
+            onPress={() => {
+              onPressKeyWord(data);
+            }}
+          >
             <Regular14SpoqaHanSansNeo text={data} style={style.gray600Color} />
-          </View>
+          </Touchable>
         ))}
       </RowContainer>
       <Touchable
