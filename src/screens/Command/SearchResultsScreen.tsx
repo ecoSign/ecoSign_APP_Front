@@ -13,6 +13,7 @@ import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
 import SpaceBetweenContainer from '@components/common/containers/SpaceBetweenContainer';
 import NoneResult from '@components/elements/SearchResultsScreen/NoneResult';
+import { useLayout } from '@hooks/useLayout';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
@@ -44,13 +45,22 @@ function SearchResultsScreen({ navigation, route }: SearchResultsScreenType) {
         <View style={{ flexGrow: 1 }}>
           <RowContainer style={styles.keywordBox}>
             <Light14SpoqaHanSansNeo
-              text={`‘${keyword}’ `}
+              text={
+                <>
+                  `{keyword}`
+                  <Light14SpoqaHanSansNeo
+                    text=" 에 대한 검색결과 입니다."
+                    style={styles.gray500Color}
+                  />
+                </>
+              }
               style={styles.green400Color}
             />
-            <Light14SpoqaHanSansNeo
-              text="에 대한 검색결과 입니다."
-              style={styles.gray500Color}
-            />
+            {/* <Light14SpoqaHanSansNeo */}
+            {/*  text="에 대한 검색결과 입니다." */}
+            {/*  style={{ ...styles.gray500Color }} */}
+            {/*  onLayout={setLayout} */}
+            {/* /> */}
           </RowContainer>
           <SpaceBetweenContainer style={styles.dropContainer}>
             <Light12SpoqaHanSansNeo
@@ -108,6 +118,7 @@ const styleSheets = (theme: ThemeType) =>
       marginHorizontal: -16,
       marginTop: 13,
       justifyContent: 'center',
+      paddingHorizontal: 16,
     },
     green400Color: {
       color: theme.colors.GREEN400,

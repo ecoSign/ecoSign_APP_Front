@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Image, StyleSheet } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { Animated, Image, StyleSheet, View } from 'react-native';
 
 import {
   Bold16SpoqaHanSansNeo,
@@ -22,33 +22,62 @@ function SplashScreen() {
   useEffect(() => {
     setTimeout(() => {
       resetNavigation(navigation, 'Auth');
-    }, 1000);
+    }, 2000);
   }, [navigation]);
+
+  const Textopacity = useRef(new Animated.Value(0)).current;
+  const ImageScale = useRef(new Animated.Value(2)).current;
+
+  Animated.sequence([
+    Animated.timing(ImageScale, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }),
+
+    Animated.timing(Textopacity, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }),
+  ]).start();
 
   return (
     <FlexContainer style={styles.container}>
       <GradientContainer>
-        <CenterContainer style={styles.top}>
-          <Image
-            source={require('../assets/images/auth/splash_logo.png')}
-            style={styles.logo}
-            resizeMode="contain"
-          />
-          <Bold16SpoqaHanSansNeo
-            text="당신의 일상에 에코를 더하다"
-            style={{ ...styles.title, fontWeight: 'bold' }}
-          />
-          <Regular16SpoqaHanSansNeo
-            text="오늘도 에코유 하세요!"
-            style={styles.title}
-          />
-        </CenterContainer>
-
-        <Image
-          source={require('../assets/images/auth/splash_bear.png')}
-          style={styles.bottom}
-          resizeMode="contain"
-        />
+        <View>
+          <Animated.View
+            style={{
+              ...styles.top,
+              opacity: Textopacity,
+            }}
+          >
+            <Image
+              source={require('../assets/images/auth/splash_logo.png')}
+              style={styles.logo}
+              resizeMode="contain"
+            />
+            <Bold16SpoqaHanSansNeo
+              text="당신의 일상에 에코를 더하다"
+              style={{ ...styles.title, fontWeight: 'bold' }}
+            />
+            <Regular16SpoqaHanSansNeo
+              text="오늘도 에코유 하세요!"
+              style={styles.title}
+            />
+          </Animated.View>
+          <Animated.View
+            style={{
+              transform: [{ scale: ImageScale }],
+            }}
+          >
+            <Image
+              source={require('../assets/images/auth/splash_bear.png')}
+              style={styles.bottom}
+              resizeMode="contain"
+            />
+          </Animated.View>
+        </View>
       </GradientContainer>
     </FlexContainer>
   );

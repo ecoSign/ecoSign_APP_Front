@@ -10,7 +10,7 @@ import {
 import Font from '@styles/Font';
 
 interface LabelProps extends TextProps {
-  text: string | number;
+  text: string | number | JSX.Element;
   style?: StyleProp<TextStyle>;
 }
 
