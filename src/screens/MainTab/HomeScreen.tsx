@@ -78,7 +78,7 @@ function HomeScreen({ navigation }: { navigation: any }) {
       >
         <RowContainer>
           <>
-            {GATHER.map((gather, index) => (
+            {GATHER.slice(0, 6).map((gather, index) => (
               <Touchable key={index} style={style.communityBox}>
                 <Image source={gather.image} style={style.community} />
                 <Regular12SpoqaHanSansNeo

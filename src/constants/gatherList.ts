@@ -23,4 +23,16 @@ export const GATHER = [
     title: '자기계발',
     image: require('../assets/icons/command/gather/selfDevelopement.png'),
   },
+  {
+    title: '환경',
+    image: require('../assets/icons/command/gather/eco.png'),
+  },
+  {
+    title: '게임/오락',
+    image: require('../assets/icons/command/gather/game.png'),
+  },
+  {
+    title: '라이프',
+    image: require('../assets/icons/command/gather/life.png'),
+  },
 ];
