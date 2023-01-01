@@ -108,7 +108,7 @@ function HomeScreen({ navigation }: { navigation: any }) {
       <RowContainer style={{ marginBottom: 22 }}>
         <Medium17GmarketSans text="커뮤 인기글!" style={style.gray900Color} />
         <Image
-          source={require('assets/icons/command/fire.png')}
+          source={require('assets/icons/common/fire.png')}
           style={{ width: 20, height: 20 }}
         />
         <RowContainer style={{ flex: 1, justifyContent: 'flex-end' }}>
@@ -142,7 +142,7 @@ function HomeScreen({ navigation }: { navigation: any }) {
           style={style.gray900Color}
         />
         <Image
-          source={require('assets/icons/command/light.png')}
+          source={require('assets/icons/common/light.png')}
           style={{ width: 20, height: 20 }}
         />
       </RowContainer>
@@ -163,7 +163,7 @@ function HomeScreen({ navigation }: { navigation: any }) {
           style={style.gray900Color}
         />
         <Image
-          source={require('assets/icons/command/book.png')}
+          source={require('assets/icons/common/book.png')}
           style={{ width: 20, height: 20, marginLeft: 2 }}
         />
       </RowContainer>
@@ -185,7 +185,7 @@ function HomeScreen({ navigation }: { navigation: any }) {
             style={style.gray900Color}
           />
           <Image
-            source={require('assets/icons/command/sparkles.png')}
+            source={require('assets/icons/common/sparkles.png')}
             style={{ width: 20, height: 20, marginLeft: 1 }}
           />
         </RowContainer>

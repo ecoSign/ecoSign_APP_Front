@@ -42,7 +42,7 @@ function NoneResult({ keyword }: { keyword: string }) {
       </View>
       <RowContainer>
         <Image
-          source={require('assets/images/command/NoneSearch.png')}
+          source={require('assets/images/common/NoneSearch.png')}
           style={styles.noneImage}
         />
       </RowContainer>

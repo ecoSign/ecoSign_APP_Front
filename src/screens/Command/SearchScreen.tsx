@@ -79,7 +79,7 @@ function SearchScreen({ navigation }: { navigation: any }) {
                 }}
               >
                 <Image
-                  source={require('assets/icons/command/closeGray.png')}
+                  source={require('assets/icons/common/closeGray.png')}
                   style={styles.close}
                 />
               </Touchable>

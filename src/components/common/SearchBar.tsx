@@ -43,7 +43,7 @@ function SearchBar({ style }: SearchBarType) {
       />
       <Touchable onPress={onSearch}>
         <Image
-          source={require('assets/icons/command/magnifyingGlass.png')}
+          source={require('assets/icons/common/magnifyingGlass.png')}
           style={styles.icon}
         />
       </Touchable>

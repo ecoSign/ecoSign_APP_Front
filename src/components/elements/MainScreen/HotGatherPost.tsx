@@ -29,7 +29,7 @@ function HotGatherPost({ gather, onPress }: HotGatherPostType) {
       >
         <RowContainer>
           <Image
-            source={require('assets/icons/command/gather/culture_performance.png')}
+            source={require('assets/icons/common/gather/culture_performance.png')}
             style={styles.icons}
           />
           <Regular17SpoqaHanSansNeo text="운동" style={styles.gray900Color} />
@@ -60,7 +60,7 @@ function HotGatherPost({ gather, onPress }: HotGatherPostType) {
                 />
                 <RowContainer style={{ marginTop: 8 }}>
                   <Image
-                    source={require('assets/icons/command/activePeople.png')}
+                    source={require('assets/icons/common/activePeople.png')}
                     style={{ width: 14, height: 14, marginRight: 3 }}
                     resizeMode="contain"
                   />

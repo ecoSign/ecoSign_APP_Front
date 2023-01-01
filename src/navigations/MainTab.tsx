@@ -81,8 +81,8 @@ function MainTab() {
             <Image
               source={
                 focused
-                  ? require('../assets/icons/command/activePeople.png')
-                  : require('../assets/icons/command/people.png')
+                  ? require('../assets/icons/common/activePeople.png')
+                  : require('../assets/icons/common/people.png')
               }
               style={
                 focused
@@ -132,8 +132,8 @@ function MainTab() {
             <Image
               source={
                 focused
-                  ? require('../assets/icons/command/activeHeart.png')
-                  : require('../assets/icons/command/heart.png')
+                  ? require('../assets/icons/common/activeHeart.png')
+                  : require('../assets/icons/common/heart.png')
               }
               style={
                 focused

@@ -39,7 +39,7 @@ function ProfileHeader({ headerStyle }: ProfileHeaderType) {
           }}
         >
           <Image
-            source={require('assets/icons/command/magnifyingGlass.png')}
+            source={require('assets/icons/common/magnifyingGlass.png')}
             style={{ ...style.icon }}
           />
         </Touchable>
@@ -49,7 +49,7 @@ function ProfileHeader({ headerStyle }: ProfileHeaderType) {
           }}
         >
           <Image
-            source={require('assets/icons/command/bell.png')}
+            source={require('assets/icons/common/bell.png')}
             style={style.icon}
           />
         </Touchable>

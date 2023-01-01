@@ -71,13 +71,13 @@ function InitialProfileScreen({ navigation }: any) {
         >
           <View style={{ position: 'relative' }}>
             <Image
-              source={require('../../assets/images/command/defaultProfile.png')}
+              source={require('../../assets/images/common/defaultProfile.png')}
               resizeMode="contain"
               style={{ width: 100, height: 100 }}
             />
             <View style={style.cameraBox}>
               <Image
-                source={require('../../assets/icons/command/camera.png')}
+                source={require('../../assets/icons/common/camera.png')}
                 resizeMode="contain"
                 style={style.camera}
               />

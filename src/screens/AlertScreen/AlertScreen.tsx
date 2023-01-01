@@ -33,7 +33,7 @@ function AlertScreen({ alert }: AlertScreenType) {
       ) : (
         <View style={styles.emptyBox}>
           <Image
-            source={require('assets/icons/command/grayBell.png')}
+            source={require('assets/icons/common/grayBell.png')}
             style={styles.icon}
           />
           <Regular14SpoqaHanSansNeo

@@ -71,7 +71,7 @@ function AccordionList({
             />
           </RowContainer>
           <Image
-            source={require('../../../assets/icons/command/arrow.png')}
+            source={require('../../../assets/icons/common/arrow.png')}
             resizeMode="contain"
             style={{
               width: 16,

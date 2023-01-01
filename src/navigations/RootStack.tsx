@@ -44,7 +44,7 @@ function RootStack() {
               }}
             >
               <Image
-                source={require('assets/icons/command/leftArrowThin.png')}
+                source={require('assets/icons/common/leftArrowThin.png')}
                 style={{
                   width: 24,
                   height: 24,

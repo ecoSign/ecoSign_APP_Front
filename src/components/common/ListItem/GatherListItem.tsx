@@ -37,7 +37,7 @@ function GatherListItem() {
           />
           <RowContainer>
             <Image
-              source={require('assets/icons/command/people.png')}
+              source={require('assets/icons/common/people.png')}
               style={{ width: 14, height: 14, marginRight: 3 }}
               resizeMode="contain"
             />
