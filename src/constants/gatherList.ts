@@ -1,4 +1,4 @@
-export const GATHER = [
+export const GATHER_CATEGORIES = [
   {
     title: '운동/액티비티',
     image: require('../assets/icons/command/gather/exercise_activity.png'),

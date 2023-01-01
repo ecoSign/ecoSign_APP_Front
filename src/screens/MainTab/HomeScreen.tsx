@@ -14,7 +14,7 @@ import CommunityPost from '@components/elements/MainScreen/CommunityPost';
 import HotGatherPost from '@components/elements/MainScreen/HotGatherPost';
 import NatureGather from '@components/elements/MainScreen/NatureGather';
 import { SCREEN_WIDTH } from '@constants/auth';
-import { GATHER } from '@constants/gatherList';
+import { GATHER_CATEGORIES } from '@constants/gatherList';
 import { BANNER_LIST } from '@constants/main/banner';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
@@ -78,7 +78,7 @@ function HomeScreen({ navigation }: { navigation: any }) {
       >
         <RowContainer>
           <>
-            {GATHER.slice(0, 6).map((gather, index) => (
+            {GATHER_CATEGORIES.slice(0, 6).map((gather, index) => (
               <Touchable key={index} style={style.communityBox}>
                 <Image source={gather.image} style={style.community} />
                 <Regular12SpoqaHanSansNeo

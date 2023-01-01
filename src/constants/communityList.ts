@@ -1,4 +1,4 @@
-export const COMMUNITY = [
+export const COMMUNITY_CATEGORIES = [
   {
     title: '실시간',
     image: require('../assets/icons/command/community/live.png'),
