@@ -127,6 +127,10 @@ export interface ThemeType {
     CYAN200: '#80DEEA';
     CYAN100: '#B2EBF2';
     CYAN50: '#E0F7FA';
+
+    // DEEP ORANGE
+    DEEPORANGE400: '#FF7043';
+    DEEPORANGE100: '#FFCCBC';
   };
   typography: {
     size: { L: number; M: number; S: number };

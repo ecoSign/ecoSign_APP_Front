@@ -119,6 +119,11 @@ export const CYAN_LIST = {
   CYAN100: '#B2EBF2',
   CYAN50: '#E0F7FA',
 };
+
+export const DEEPORANGE_LIST = {
+  DEEPORANGE400: '#FF7043',
+  DEEPORANGE100: '#FFCCBC',
+};
 export const BLUEGRAY_LIST = {
   BLUEGRAY50: '#ECEFF1',
 };
@@ -134,6 +139,7 @@ export const COMMON_COLOR = {
   ...LIGHTBLUE_LIST,
   ...CYAN_LIST,
   ...BLUEGRAY_LIST,
+  ...DEEPORANGE_LIST,
   WHITE: '#fff',
   BLACK: '#000',
 };

@@ -15,7 +15,13 @@ interface LabelProps extends TextProps {
 }
 
 // Bold//////////////////////////////////////
-
+export function Bold10SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
+  return (
+    <Text style={[styles.BoldBase, styles.size10, style]} {...props}>
+      {text}
+    </Text>
+  );
+}
 export function Bold11SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
   return (
     <Text style={[styles.BoldBase, styles.size11, style]} {...props}>
@@ -81,7 +87,13 @@ export function Bold20SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
 }
 
 // Medium//////////////////////////////////////
-
+export function Medium10SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
+  return (
+    <Text style={[styles.MediumBase, styles.size10, style]} {...props}>
+      {text}
+    </Text>
+  );
+}
 export function Medium11SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
   return (
     <Text style={[styles.MediumBase, styles.size11, style]} {...props}>
@@ -147,7 +159,13 @@ export function Medium20SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
 }
 
 // Light//////////////////////////////////////
-
+export function Light10SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
+  return (
+    <Text style={[styles.LightBase, styles.size10, style]} {...props}>
+      {text}
+    </Text>
+  );
+}
 export function Light11SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
   return (
     <Text style={[styles.LightBase, styles.size11, style]} {...props}>
@@ -213,7 +231,17 @@ export function Light20SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
 }
 
 // Regular//////////////////////////////////////
-
+export function Regular10SpoqaHanSansNeo({
+  style,
+  text,
+  ...props
+}: LabelProps) {
+  return (
+    <Text style={[styles.RegularBase, styles.size10, style]} {...props}>
+      {text}
+    </Text>
+  );
+}
 export function Regular11SpoqaHanSansNeo({
   style,
   text,
@@ -315,7 +343,13 @@ export function Regular20SpoqaHanSansNeo({
 }
 
 // Thin//////////////////////////////////////
-
+export function Thin10SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
+  return (
+    <Text style={[styles.ThinBase, styles.size10, style]} {...props}>
+      {text}
+    </Text>
+  );
+}
 export function Thin11SpoqaHanSansNeo({ style, text, ...props }: LabelProps) {
   return (
     <Text style={[styles.ThinBase, styles.size11, style]} {...props}>
@@ -404,6 +438,10 @@ const styles = StyleSheet.create({
   },
   ThinBase: {
     // fontFamily: Font.GmarketSansTTFBold
+  },
+  size10: {
+    fontSize: 10,
+    lineHeight: 10 * 1.5,
   },
   size11: {
     fontSize: 11,
