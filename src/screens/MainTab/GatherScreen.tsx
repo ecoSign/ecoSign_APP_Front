@@ -6,12 +6,12 @@ import ProfileHeader from '@components/common/HeaderComponent/ProfileHeader';
 import {
   Bold18SpoqaHanSansNeo,
   Regular12SpoqaHanSansNeo,
-  Regular14SpoqaHanSansNeo,
   Regular18SpoqaHanSansNeo,
 } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import ProfileHeaderLayout from '@components/common/Layouts/ProfileHeaderLayout';
 import ImminentDeadline from '@components/common/ListItem/ImminentDeadline';
 import RecruitmentGatherItem from '@components/common/ListItem/RecruitmentGatherItem';
+import SearchWrap from '@components/common/SearchWrap';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
 import SpaceBetweenContainer from '@components/common/containers/SpaceBetweenContainer';
@@ -19,19 +19,13 @@ import HotGatherPost from '@components/elements/MainScreen/HotGatherPost';
 import { SCREEN_WIDTH } from '@constants/auth';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
-import { SearchKeyword } from '@utils/SearchKeyword';
 
 interface GatherScreenType {
   navigation: any;
 }
 function GatherScreen({ navigation }: GatherScreenType) {
-  const dispatch = useDispatch();
   const styles = useThemedStyles(styleSheet);
   const onClickShowMoreHotGather = (item: any) => {};
-
-  const onPressKeyWord = (keyword: string) => {
-    SearchKeyword(keyword, dispatch, navigation);
-  };
 
   return (
     <ProfileHeaderLayout
@@ -136,56 +130,22 @@ function GatherScreen({ navigation }: GatherScreenType) {
         text="키워드로 찾아봐요"
         style={{ ...styles.gray900Color, marginTop: 55, marginBottom: 32 }}
       />
-      <RowContainer style={styles.solidWrapBox}>
-        {[
-          '서핑',
-          '원데이클래스',
-          '독서',
-          '손뜨개',
-          '플로깅',
-          '영상제작',
-          '유기견',
-          '등산',
-        ].map((data, index) => (
-          <Touchable
-            style={styles.solidBox}
-            key={index}
-            onPress={() => {
-              onPressKeyWord(data);
-            }}
-          >
-            <Regular14SpoqaHanSansNeo
-              text={data}
-              style={{ ...styles.green400Color }}
-            />
-          </Touchable>
-        ))}
-      </RowContainer>
+      <SearchWrap
+        gap={6}
+        buttonStyle={styles.solidBox}
+        fontStyle={styles.green400Color}
+      />
     </ProfileHeaderLayout>
   );
 }
-const gap = 8;
-const solidGap = 6;
 
 const styleSheet = (theme: ThemeType) =>
   StyleSheet.create({
-    wrapBox: {
-      flex: 1,
-      flexWrap: 'wrap',
-      paddingHorizontal: gap / -2,
-    },
-    solidWrapBox: {
-      flex: 1,
-      flexWrap: 'wrap',
-      paddingHorizontal: solidGap / -2,
-      justifyContent: 'center',
-    },
     solidBox: {
       flexDirection: 'row',
       alignItems: 'center',
       paddingHorizontal: 16,
       paddingVertical: 7.5,
-      marginHorizontal: solidGap / 2,
       marginBottom: 13,
     },
     green400Color: { color: theme.colors.GREEN400 },

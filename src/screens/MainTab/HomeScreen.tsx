@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 
 import { Medium17GmarketSans } from '@components/common/Label/GmarketLabel';
 import ProfileHeaderLayout from '@components/common/Layouts/ProfileHeaderLayout';
+import SearchWrap from '@components/common/SearchWrap';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
 import { ScrollRowContainer } from '@components/common/containers/ScrollRowContainer';
@@ -194,8 +195,11 @@ function HomeScreen({ navigation }: { navigation: any }) {
           style={{ ...style.gray700Color }}
         />
       </View>
-      <RowContainer style={style.wrapBox}>
-        {[
+      <SearchWrap
+        gap={8}
+        buttonStyle={style.dotBox}
+        fontStyle={style.gray600Color}
+        data={[
           '서핑',
           '원데이클래스',
           '독서',
@@ -204,18 +208,8 @@ function HomeScreen({ navigation }: { navigation: any }) {
           '영상제작',
           '유기견',
           '등산',
-        ].map((data, index) => (
-          <Touchable
-            style={style.dotBox}
-            key={index}
-            onPress={() => {
-              onPressKeyWord(data);
-            }}
-          >
-            <Regular14SpoqaHanSansNeo text={data} style={style.gray600Color} />
-          </Touchable>
-        ))}
-      </RowContainer>
+        ]}
+      />
       <Touchable
         style={{
           flexDirection: 'row',
@@ -236,7 +230,6 @@ function HomeScreen({ navigation }: { navigation: any }) {
     </ProfileHeaderLayout>
   );
 }
-const gap = 8;
 
 const styles = (theme: ThemeType) =>
   StyleSheet.create({
@@ -296,13 +289,6 @@ const styles = (theme: ThemeType) =>
       paddingVertical: 4.5,
       borderStyle: 'dashed',
       marginBottom: 11,
-      marginHorizontal: gap / 2,
-    },
-    wrapBox: {
-      flex: 1,
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-      paddingHorizontal: gap / -2,
     },
     order: {
       position: 'absolute',

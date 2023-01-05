@@ -6,6 +6,7 @@ import {
   Light14SpoqaHanSansNeo,
   Light18SpoqaHanSansNeo,
 } from '@components/common/Label/SpoqaHanSansNeoLabel';
+import SearchWrap from '@components/common/SearchWrap';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
 import { SCREEN_WIDTH } from '@constants/auth';
@@ -51,28 +52,12 @@ function NoneResult({ keyword }: { keyword: string }) {
           text="이런 검색어는 어떠세요?"
           style={{ ...styles.gray700Color, marginBottom: 23 }}
         />
-        <RowContainer style={styles.wrapBox}>
-          {[
-            '서핑',
-            '원데이클래스',
-            '독서',
-            '손뜨개',
-            '플로깅',
-            '영상제작',
-            '유기견',
-            '등산',
-          ].map((data, index) => (
-            <Touchable
-              style={styles.dotBox}
-              key={index}
-              onPress={() => {
-                onPressKeyWord(data);
-              }}
-            >
-              <Light14SpoqaHanSansNeo text={data} style={styles.gray900Color} />
-            </Touchable>
-          ))}
-        </RowContainer>
+        <SearchWrap
+          gap={6}
+          buttonStyle={styles.dotBox}
+          fontStyle={styles.gray900Color}
+          containerStyle={styles.wrapBox}
+        />
       </View>
     </View>
   );
@@ -129,6 +114,7 @@ const styleSheets = (theme: ThemeType) =>
       flexWrap: 'wrap',
       justifyContent: 'center',
       paddingHorizontal: gap / -2,
+      flex: 0,
     },
   });
 export default NoneResult;

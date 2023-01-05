@@ -8,6 +8,7 @@ import {
   Regular18SpoqaHanSansNeo,
 } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import SearchBar from '@components/common/SearchBar';
+import SearchWrap from '@components/common/SearchWrap';
 import Touchable from '@components/common/buttons/Touchable';
 import { FlexContainer } from '@components/common/containers/FlexContainer';
 import RowContainer from '@components/common/containers/RowContainer';
@@ -19,7 +20,6 @@ import { removeKeyword, resetKeyword } from '@/redux/slices/keywordSlice';
 import useAppStore from '@/redux/useAppStore';
 
 const gap = 8;
-const solidGap = 6;
 
 function SearchScreen({ navigation }: { navigation: any }) {
   const { keywordList } = useAppStore((state) => state.keywordList);
@@ -94,8 +94,10 @@ function SearchScreen({ navigation }: { navigation: any }) {
             style={styles.gray900Color}
           />
         </RowContainer>
-        <RowContainer style={styles.solidWrapBox}>
-          {[
+
+        <SearchWrap
+          gap={6}
+          data={[
             '서핑',
             '원데이클래스',
             '독서',
@@ -104,21 +106,11 @@ function SearchScreen({ navigation }: { navigation: any }) {
             '영상제작',
             '유기견',
             '등산',
-          ].map((data, index) => (
-            <Touchable
-              style={styles.solidBox}
-              key={index}
-              onPress={() => {
-                onPressKeyWord(data);
-              }}
-            >
-              <Regular14SpoqaHanSansNeo
-                text={data}
-                style={{ ...styles.gray900Color }}
-              />
-            </Touchable>
-          ))}
-        </RowContainer>
+          ]}
+          buttonStyle={styles.solidBox}
+          fontStyle={styles.gray900Color}
+          containerStyle={styles.solidWrapBox}
+        />
       </ScrollView>
     </FlexContainer>
   );
@@ -165,7 +157,7 @@ const styleSheets = (theme: ThemeType) =>
     solidWrapBox: {
       flex: 1,
       flexWrap: 'wrap',
-      paddingHorizontal: solidGap / -2,
+      justifyContent: 'flex-start',
     },
 
     close: {
@@ -183,7 +175,6 @@ const styleSheets = (theme: ThemeType) =>
       paddingHorizontal: 16,
       paddingVertical: 4,
       marginBottom: 10,
-      marginHorizontal: solidGap / 2,
       backgroundColor: theme.colors.WHITE,
     },
   });
