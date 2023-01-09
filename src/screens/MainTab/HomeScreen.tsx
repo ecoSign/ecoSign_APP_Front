@@ -199,16 +199,6 @@ function HomeScreen({ navigation }: { navigation: any }) {
         gap={8}
         buttonStyle={style.dotBox}
         fontStyle={style.gray600Color}
-        data={[
-          '서핑',
-          '원데이클래스',
-          '독서',
-          '손뜨개',
-          '플로깅',
-          '영상제작',
-          '유기견',
-          '등산',
-        ]}
       />
       <Touchable
         style={{

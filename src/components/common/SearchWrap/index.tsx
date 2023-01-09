@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import { Regular14SpoqaHanSansNeo } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
-import { SCREEN_WIDTH } from '@constants/auth';
+import { CATEGORIES } from '@constants/categories';
 import { useNavigation } from '@react-navigation/native';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
@@ -15,21 +15,13 @@ interface SearchWrapType {
   data?: any;
   gap?: number;
   solidGap?: number;
-  buttonStyle?: any;
-  fontStyle?: any;
-  containerStyle?: any;
+  buttonStyle?: ViewStyle;
+  fontStyle?: TextStyle;
+  containerStyle?: ViewStyle;
 }
+
 function SearchWrap({
-  data = [
-    '서핑',
-    '원데이클래스',
-    '독서',
-    '손뜨개',
-    '플로깅',
-    '영상제작',
-    '유기견',
-    '등산',
-  ],
+  data = CATEGORIES,
   gap = 8,
   containerStyle,
   buttonStyle,
