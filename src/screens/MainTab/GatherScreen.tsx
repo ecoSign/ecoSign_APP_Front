@@ -44,7 +44,11 @@ function GatherScreen({ navigation }: GatherScreenType) {
           text="즐겨찾는 모임 카테고리"
           style={styles.gray900Color}
         />
-        <Touchable>
+        <Touchable
+          onPress={() => {
+            navigation.navigate('EditFavoriteCommunity');
+          }}
+        >
           <Regular12SpoqaHanSansNeo text="편집+" style={styles.gray500Color} />
         </Touchable>
       </SpaceBetweenContainer>

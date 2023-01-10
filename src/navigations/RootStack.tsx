@@ -1,12 +1,14 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
+import BackNavigation from '@components/common/buttons/BackNavigation';
 import Touchable from '@components/common/buttons/Touchable';
 import { AlertStack } from '@navigations/AlertStack';
 import AuthStack from '@navigations/AuthStack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SearchResultsScreen from '@screens/Command/SearchResultsScreen';
 import SearchScreen from '@screens/Command/SearchScreen';
+import EditFavoriteCommunity from '@screens/MainTab/EditFavoriteCommunity';
 import SplashScreen from '@screens/SplashScreen';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
@@ -37,25 +39,21 @@ function RootStack() {
           headerShown: true,
           headerTitleStyle: style.title,
           title: '알림',
-          headerLeft: () => (
-            <Touchable
-              onPress={() => {
-                navigation.goBack();
-              }}
-            >
-              <Image
-                source={require('assets/icons/common/leftArrowThin.png')}
-                style={{
-                  width: 24,
-                  height: 24,
-                }}
-              />
-            </Touchable>
-          ),
+          headerLeft: () => <BackNavigation />,
         })}
       />
       <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen name="SearchResults" component={SearchResultsScreen} />
+      <Stack.Screen
+        name="EditFavoriteCommunity"
+        component={EditFavoriteCommunity}
+        options={({ navigation, route }) => ({
+          headerShown: true,
+          headerTitleStyle: style.title,
+          title: '모임 즐겨찾기 편집',
+          headerLeft: () => <BackNavigation />,
+        })}
+      />
     </Stack.Navigator>
   );
 }
