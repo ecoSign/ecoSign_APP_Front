@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View, ViewStyle } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
 import {
@@ -11,11 +11,16 @@ import RowContainer from '@components/common/containers/RowContainer';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
-function FavoriteCommunity({ item }: { item: any }) {
+interface FavoriteCommunityType {
+  item: any;
+  style?: ViewStyle;
+}
+
+function FavoriteCommunity({ item, style }: FavoriteCommunityType) {
   const styles = useThemedStyles(styleSheets);
 
   return (
-    <RowContainer style={styles.container}>
+    <RowContainer style={{ ...styles.container, ...style }}>
       <Feather name="menu" size={18} style={styles.menu} />
       <View style={{ flex: 1 }}>
         <Regular16SpoqaHanSansNeo

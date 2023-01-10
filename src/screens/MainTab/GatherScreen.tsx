@@ -1,12 +1,22 @@
 import React from 'react';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import {
+  FlatList,
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import ProfileHeader from '@components/common/HeaderComponent/ProfileHeader';
 import {
   Bold18SpoqaHanSansNeo,
+  Light12SpoqaHanSansNeo,
   Regular12SpoqaHanSansNeo,
   Regular18SpoqaHanSansNeo,
+  Regular20SpoqaHanSansNeo,
+  Thin20SpoqaHanSansNeo,
 } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import ProfileHeaderLayout from '@components/common/Layouts/ProfileHeaderLayout';
 import ImminentDeadline from '@components/common/ListItem/ImminentDeadline';
@@ -32,13 +42,33 @@ function GatherScreen({ navigation }: GatherScreenType) {
       header={<ProfileHeader headerStyle={styles.headerStyle} />}
       containerStyle={{ paddingBottom: 33 }}
     >
-      <View style={[styles.noPadding, styles.bannerBox]}>
-        <Image
-          source={require('assets/images/main/gather/banner.png')}
-          style={styles.bannerImage}
-          resizeMode="contain"
-        />
-      </View>
+      <ImageBackground
+        source={require('assets/images/main/gather/banner.png')}
+        resizeMode="cover"
+        style={styles.bannerImage}
+      >
+        <View style={{ paddingLeft: 29 }}>
+          <Thin20SpoqaHanSansNeo text="모임 참여하고," />
+          <Thin20SpoqaHanSansNeo
+            style={styles.gray900Color}
+            text={
+              <>
+                <Regular20SpoqaHanSansNeo
+                  text="자기계발"
+                  style={{ color: '#9DAE81' }}
+                />
+                도 하자!
+              </>
+            }
+          />
+          <Touchable style={{ marginTop: 15 }}>
+            <Light12SpoqaHanSansNeo
+              text="모임 보러가기>"
+              style={styles.gray500Color}
+            />
+          </Touchable>
+        </View>
+      </ImageBackground>
       <SpaceBetweenContainer style={{ marginBottom: 30 }}>
         <Regular18SpoqaHanSansNeo
           text="즐겨찾는 모임 카테고리"
@@ -177,8 +207,11 @@ const styleSheet = (theme: ThemeType) =>
       marginBottom: 34,
     },
     bannerImage: {
-      width: '100%',
-      height: '100%',
+      width: SCREEN_WIDTH,
+      height: SCREEN_WIDTH * 0.853333333,
+      marginBottom: 34,
+      justifyContent: 'center',
+      marginHorizontal: -16,
     },
     categoryImage: {
       width: 60,

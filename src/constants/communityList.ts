@@ -5,7 +5,7 @@ export const COMMUNITY_CATEGORIES = [
   },
   {
     title: '환경',
-    image: require('../assets/icons/common/community/culture.png'),
+    image: require('../assets/icons/common/community/eco.png'),
   },
   {
     title: '게임/오락',
