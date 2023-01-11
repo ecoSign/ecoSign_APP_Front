@@ -106,7 +106,9 @@ function CommunityScreen({ navigation }: CommunityScreenType) {
                 <Touchable
                   style={{ alignItems: 'center' }}
                   onPress={() => {
-                    navigation.navigate('CommunityDetail');
+                    navigation.navigate('CommunityDetail', {
+                      initialNav: data.title,
+                    });
                   }}
                 >
                   <Image source={data.image} key={index} style={styles.image} />

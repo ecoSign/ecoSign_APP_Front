@@ -1,12 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import {
   Bold14SpoqaHanSansNeo,
   Regular14SpoqaHanSansNeo,
 } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import ProfileHeaderLayout from '@components/common/Layouts/ProfileHeaderLayout';
-import { SCREEN_WIDTH } from '@constants/auth';
 import { COMMUNITY_CATEGORIES } from '@constants/communityList';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import CommunityDetail from '@screens/CommunityDetail/CommunityDetail';
@@ -15,7 +14,10 @@ import useThemedStyles from '@theme/useThemedStyles';
 
 const Tab = createMaterialTopTabNavigator();
 
-export function CommunityDetailStack() {
+interface CommunityDetailStackType {
+  route: any;
+}
+export function CommunityDetailStack({ route }: CommunityDetailStackType) {
   const style = useThemedStyles(styles);
 
   return (
@@ -27,7 +29,11 @@ export function CommunityDetailStack() {
       }}
     >
       <Tab.Navigator
+        initialRouteName={
+          route?.params?.initialNav ? route?.params?.initialNav : '실시간'
+        }
         screenOptions={({ route }) => ({
+          lazy: true,
           tabBarInactiveTintColor: '#757575',
           tabBarActiveTintColor: '#9CCC65',
           tabBarIndicatorStyle: {
