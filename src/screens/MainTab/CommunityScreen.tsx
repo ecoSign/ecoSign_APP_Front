@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import {
+  FlatList,
   Image,
   ImageBackground,
   ScrollView,
@@ -16,8 +17,11 @@ import {
   Thin20SpoqaHanSansNeo,
 } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import ProfileHeaderLayout from '@components/common/Layouts/ProfileHeaderLayout';
+import FeedItem from '@components/common/ListItem/FeedItem';
+import TopFeed from '@components/common/ListItem/TopFeed';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
+import CommunityPost from '@components/elements/MainScreen/CommunityPost';
 import { SCREEN_WIDTH } from '@constants/auth';
 import { COMMUNITY_CATEGORIES } from '@constants/communityList';
 import { ThemeType } from '@theme/ThemeType';
@@ -123,6 +127,24 @@ function CommunityScreen() {
       <Regular18SpoqaHanSansNeo
         text="인기글 TOP3"
         style={styles.gray900Color}
+      />
+      <FlatList
+        data={[1, 2, 3]}
+        renderItem={({ item }) => <TopFeed />}
+        keyExtractor={(item, index) => `key${index}`}
+        horizontal
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        style={{ marginRight: -16, marginTop: 24, marginBottom: 58 }}
+      />
+      <Regular18SpoqaHanSansNeo text="최신 피드" style={styles.gray900Color} />
+      <FlatList
+        data={[1, 2, 3]}
+        renderItem={({ item }) => <FeedItem />}
+        keyExtractor={(item, index) => `key${index}`}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        style={{ marginTop: 21 }}
       />
     </ProfileHeaderLayout>
   );

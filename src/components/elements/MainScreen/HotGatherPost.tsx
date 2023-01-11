@@ -12,6 +12,7 @@ import {
 } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
+import { SCREEN_WIDTH } from '@constants/auth';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
@@ -118,7 +119,7 @@ const styleSheet = (theme: ThemeType) =>
       marginRight: 8,
     },
     box: {
-      width: 283,
+      width: SCREEN_WIDTH * 0.75,
       backgroundColor: theme.colors.WHITE,
       paddingTop: 16,
       paddingLeft: 12,
