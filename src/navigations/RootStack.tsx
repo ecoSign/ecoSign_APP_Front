@@ -5,6 +5,7 @@ import BackNavigation from '@components/common/buttons/BackNavigation';
 import Touchable from '@components/common/buttons/Touchable';
 import { AlertStack } from '@navigations/AlertStack';
 import AuthStack from '@navigations/AuthStack';
+import { CommunityDetailStack } from '@navigations/CommunityDetailStack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SearchResultsScreen from '@screens/Command/SearchResultsScreen';
 import SearchScreen from '@screens/Command/SearchScreen';
@@ -42,6 +43,15 @@ function RootStack() {
           headerLeft: () => <BackNavigation />,
         })}
       />
+      <Stack.Screen
+        name="CommunityDetail"
+        component={CommunityDetailStack}
+        options={({ navigation, route }) => ({
+          headerShown: false,
+          // headerLeft: () => <BackNavigation />,
+        })}
+      />
+      {/* CommunityDetail */}
       <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen name="SearchResults" component={SearchResultsScreen} />
       <Stack.Screen

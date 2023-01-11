@@ -27,8 +27,11 @@ import { COMMUNITY_CATEGORIES } from '@constants/communityList';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
-interface CommunityScreenType {}
-function CommunityScreen() {
+interface CommunityScreenType {
+  navigation: any;
+}
+
+function CommunityScreen({ navigation }: CommunityScreenType) {
   const styles = useThemedStyles(styleSheet);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -100,7 +103,12 @@ function CommunityScreen() {
           >
             {list.map((data, index) => (
               <View style={styles.imageBox} key={index}>
-                <Touchable style={{ alignItems: 'center' }}>
+                <Touchable
+                  style={{ alignItems: 'center' }}
+                  onPress={() => {
+                    navigation.navigate('CommunityDetail');
+                  }}
+                >
                   <Image source={data.image} key={index} style={styles.image} />
                   <Regular12SpoqaHanSansNeo
                     text={data.title}

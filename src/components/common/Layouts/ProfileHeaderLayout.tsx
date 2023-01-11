@@ -26,7 +26,7 @@ function ProfileHeaderLayout({
   const style = useThemedStyles(styles);
 
   return (
-    <ScrollView style={{ flex: 1 }}>
+    <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
       {header}
       <FlexContainer style={{ ...style.container, ...containerStyle }}>
         {children}
