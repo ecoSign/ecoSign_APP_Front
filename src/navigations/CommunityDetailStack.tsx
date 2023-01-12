@@ -63,6 +63,7 @@ export function CommunityDetailStack({ route }: CommunityDetailStackType) {
       >
         {COMMUNITY_CATEGORIES.map((data, index) => (
           <Tab.Screen
+            key={index}
             name={data.title}
             children={() => <CommunityDetail type={data.title} />}
             options={{
