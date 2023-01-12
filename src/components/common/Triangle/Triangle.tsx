@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
 
 interface TriangleType {
-  style?: any;
+  style?: ViewStyle;
 }
 function Triangle({ style }: TriangleType) {
   const styles = useThemedStyles(styleSheet);

@@ -25,17 +25,17 @@ function SplashScreen() {
     }, 2000);
   }, [navigation]);
 
-  const Textopacity = useRef(new Animated.Value(0)).current;
-  const ImageScale = useRef(new Animated.Value(2)).current;
+  const textOpacity = useRef(new Animated.Value(0)).current;
+  const imageScale = useRef(new Animated.Value(2)).current;
 
   Animated.sequence([
-    Animated.timing(ImageScale, {
+    Animated.timing(imageScale, {
       toValue: 1,
       duration: 1000,
       useNativeDriver: true,
     }),
 
-    Animated.timing(Textopacity, {
+    Animated.timing(textOpacity, {
       toValue: 1,
       duration: 1000,
       useNativeDriver: true,
@@ -49,7 +49,7 @@ function SplashScreen() {
           <Animated.View
             style={{
               ...styles.top,
-              opacity: Textopacity,
+              opacity: textOpacity,
             }}
           >
             <Image
@@ -68,7 +68,7 @@ function SplashScreen() {
           </Animated.View>
           <Animated.View
             style={{
-              transform: [{ scale: ImageScale }],
+              transform: [{ scale: imageScale }],
             }}
           >
             <Image

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextProps, View } from 'react-native';
+import { StyleSheet, Text, TextProps, TextStyle, View } from 'react-native';
 
 import { Light16SpoqaHanSansNeo } from '@components/common/Label/SpoqaHanSansNeoLabel';
 import Font from '@styles/Font';
@@ -9,8 +9,8 @@ import useThemedStyles from '@theme/useThemedStyles';
 interface HighlightTextType extends TextProps {
   text: string;
   highlight: string;
-  textStyle: any;
-  highlightStyle: any;
+  textStyle: TextStyle;
+  highlightStyle: TextStyle;
 }
 function HighlightText({
   text,

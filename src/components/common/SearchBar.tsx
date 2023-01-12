@@ -1,5 +1,12 @@
 import React, { useCallback } from 'react';
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  ViewStyle,
+} from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Touchable from '@components/common/buttons/Touchable';
@@ -13,7 +20,7 @@ import { SearchKeyword } from '@utils/SearchKeyword';
 import { addKeyword } from '@/redux/slices/keywordSlice';
 
 interface SearchBarType {
-  style?: any;
+  style?: ViewStyle;
 }
 function SearchBar({ style }: SearchBarType) {
   const navigation: any = useNavigation();

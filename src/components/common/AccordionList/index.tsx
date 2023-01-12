@@ -15,7 +15,7 @@ interface Type {
   title: string;
   subTitle: string;
   isRequired?: boolean;
-  onClick: any;
+  onClick: (value: string) => void;
   isActive: boolean;
   value: string;
 }

@@ -8,8 +8,8 @@ import useToggle from '@hooks/useToggle';
 import styled from 'styled-components';
 
 interface TitleInputType {
-  onChangeText: any;
-  value: any;
+  onChangeText: (text: string) => void;
+  value: string;
   placeholder: string;
   keyboardType?: KeyboardTypeOptions;
   title: string;
