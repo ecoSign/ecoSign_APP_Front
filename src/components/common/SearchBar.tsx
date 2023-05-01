@@ -7,7 +7,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Touchable from '@components/common/buttons/Touchable';
 import RowContainer from '@components/common/containers/RowContainer';
@@ -29,12 +29,12 @@ function SearchBar({ style }: SearchBarType) {
 
   const [keyword, onChangeKeyword, setKeyword] = useInput('');
 
-  const onSearch = () => {
+  const onSearch = useCallback(() => {
     if (keyword.length > 0) {
       searchKeyword(keyword, dispatch, navigation);
       setKeyword('');
     }
-  };
+  }, []);
 
   return (
     <RowContainer style={{ ...styles.container, ...style }}>
