@@ -28,12 +28,11 @@ function FavoriteCommunity({ item, style }: FavoriteCommunityType) {
           style={{ ...styles.gray900Color, marginBottom: 10 }}
         />
         <RowContainer>
-          {[1, 2, 3, 4, 5].map((data, index) => (
-            <View style={styles.categoryBox}>
+          {[1, 2, 3, 4, 5].map((data, idx) => (
+            <View key={idx} style={styles.categoryBox}>
               <Regular12SpoqaHanSansNeo
                 text="봉사"
                 style={styles.gray500Color}
-                key={index}
               />
             </View>
           ))}
