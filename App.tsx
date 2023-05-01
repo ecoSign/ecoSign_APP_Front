@@ -10,7 +10,6 @@
 import * as React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   useColorScheme,
@@ -32,7 +31,7 @@ import ThemeProviderSheet from './src/theme/ThemeProvider';
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
-    backgroundColor: 'isDarkMode ? Colors.darker : Colors.lighter',
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   const queryClient = new QueryClient({

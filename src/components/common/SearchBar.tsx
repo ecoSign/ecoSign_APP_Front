@@ -15,9 +15,9 @@ import useInput from '@hooks/useInput';
 import { useNavigation } from '@react-navigation/native';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
-import { SearchKeyword } from '@utils/SearchKeyword';
 
 import { addKeyword } from '@/redux/slices/keywordSlice';
+import { searchKeyword } from '@/utils/searchKeyword';
 
 interface SearchBarType {
   style?: ViewStyle;
@@ -31,7 +31,7 @@ function SearchBar({ style }: SearchBarType) {
 
   const onSearch = () => {
     if (keyword.length > 0) {
-      SearchKeyword(keyword, dispatch, navigation);
+      searchKeyword(keyword, dispatch, navigation);
       setKeyword('');
     }
   };

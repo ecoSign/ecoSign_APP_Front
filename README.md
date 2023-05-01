@@ -4,9 +4,9 @@
 |   +-- api             통신과 관련된 데이터
 |   +-- screens         화면 View
 |   +-- components      자주 사용되는 컴포넌트
-|   +-- hooks           custom을 한 hook
+|   +-- hooks           custom hook
 |   +-- layout          화면의 레아이웃 구조 
-|   +-- navigations      navigator 파일
+|   +-- navigations     navigator 파일
 |   +-- redux           redux 관련 함수
 |   +-- theme           앱에서 사용하는 theme
 |   +-- utils           사용 가능한 간단한 함수들

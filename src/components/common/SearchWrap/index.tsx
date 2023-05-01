@@ -9,7 +9,8 @@ import { CATEGORIES } from '@constants/categories';
 import { useNavigation } from '@react-navigation/native';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
-import { SearchKeyword } from '@utils/SearchKeyword';
+
+import { searchKeyword } from '@/utils/searchKeyword';
 
 interface SearchWrapType {
   data?: any;
@@ -30,7 +31,7 @@ function SearchWrap({
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const onPressKeyWord = (keyword: string) => {
-    SearchKeyword(keyword, dispatch, navigation);
+    searchKeyword(keyword, dispatch, navigation);
   };
   const styleSheet = (theme: ThemeType) =>
     StyleSheet.create({

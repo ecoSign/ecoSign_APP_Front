@@ -1,7 +1,7 @@
 import { addKeyword } from '@/redux/slices/keywordSlice';
 import { store } from '@/redux/store';
 
-export const SearchKeyword = (
+export const searchKeyword = (
   keyword: string,
   dispatch: typeof store.dispatch,
   navigation: { navigate: (arg0: any, arg1: { keyword: string }) => any },
