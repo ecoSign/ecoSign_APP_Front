@@ -34,7 +34,7 @@ function SearchBar({ style }: SearchBarType) {
       searchKeyword(keyword, dispatch, navigation);
       setKeyword('');
     }
-  }, []);
+  }, [keyword]);
 
   return (
     <RowContainer style={{ ...styles.container, ...style }}>
