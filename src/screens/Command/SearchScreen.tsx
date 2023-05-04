@@ -14,10 +14,10 @@ import { FlexContainer } from '@components/common/containers/FlexContainer';
 import RowContainer from '@components/common/containers/RowContainer';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
-import { SearchKeyword } from '@utils/SearchKeyword';
 
 import { removeKeyword, resetKeyword } from '@/redux/slices/keywordSlice';
 import useAppStore from '@/redux/useAppStore';
+import { searchKeyword } from '@/utils/searchKeyword';
 
 const gap = 8;
 
@@ -35,7 +35,7 @@ function SearchScreen({ navigation }: { navigation: any }) {
   );
 
   const onPressKeyWord = (keyword: string) => {
-    SearchKeyword(keyword, dispatch, navigation);
+    searchKeyword(keyword, dispatch, navigation);
   };
 
   return (

@@ -19,7 +19,6 @@ import { GATHER_CATEGORIES } from '@constants/gatherList';
 import { BANNER_LIST } from '@constants/main/banner';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
-import { SearchKeyword } from '@utils/SearchKeyword';
 
 import {
   Regular12SpoqaHanSansNeo,
@@ -27,6 +26,7 @@ import {
   Regular16SpoqaHanSansNeo,
   Thin12SpoqaHanSansNeo,
 } from '@/components/common/Label/SpoqaHanSansNeoLabel';
+import { searchKeyword } from '@/utils/searchKeyword';
 
 function HomeScreen({ navigation }: { navigation: any }) {
   const style = useThemedStyles(styles);
@@ -37,7 +37,7 @@ function HomeScreen({ navigation }: { navigation: any }) {
   const onClickShowMoreHotGather = (item: any) => {};
 
   const onPressKeyWord = (keyword: string) => {
-    SearchKeyword(keyword, dispatch, navigation);
+    searchKeyword(keyword, dispatch, navigation);
   };
 
   return (

@@ -13,9 +13,9 @@ import { SCREEN_WIDTH } from '@constants/auth';
 import { useNavigation } from '@react-navigation/native';
 import { ThemeType } from '@theme/ThemeType';
 import useThemedStyles from '@theme/useThemedStyles';
-import { SearchKeyword } from '@utils/SearchKeyword';
 
 import { addKeyword } from '@/redux/slices/keywordSlice';
+import { searchKeyword } from '@/utils/searchKeyword';
 
 function NoneResult({ keyword }: { keyword: string }) {
   const styles = useThemedStyles(styleSheets);
@@ -23,7 +23,7 @@ function NoneResult({ keyword }: { keyword: string }) {
   const dispatch = useDispatch();
 
   const onPressKeyWord = (keyword: string) => {
-    SearchKeyword(keyword, dispatch, navigation);
+    searchKeyword(keyword, dispatch, navigation);
   };
 
   return (
