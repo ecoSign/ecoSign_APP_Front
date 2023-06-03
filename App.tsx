@@ -45,7 +45,7 @@ function App() {
   });
 
   const theme = {
-    colors: !isDarkMode ? colors.light : colors.dark,
+    colors: isDarkMode ? colors.dark : colors.light,
     typography,
   };
 

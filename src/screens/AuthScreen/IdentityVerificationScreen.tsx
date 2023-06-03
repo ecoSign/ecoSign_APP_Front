@@ -186,9 +186,7 @@ const styles = (theme: ThemeType) =>
 const InputBox = styled(View)`
   background-color: ${(props: { theme: { colors: { DISABLE: any } } }) =>
     props.theme.colors.DISABLE};
-  padding-top: 6px;
-  padding-bottom: 12px;
-  padding-horizontal: 14;
+  padding: 6px 14px 12px;
   margin-bottom: 14px;
   border-radius: 10px;
   //border-width: 1px;
