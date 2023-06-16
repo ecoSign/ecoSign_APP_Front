@@ -533,6 +533,8 @@
 				DEVELOPMENT_TEAM = 2V33DRY3K6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = EcoSignApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "에코유";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -559,6 +561,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2V33DRY3K6;
 				INFOPLIST_FILE = EcoSignApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "에코유";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

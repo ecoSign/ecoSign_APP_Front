@@ -11,7 +11,10 @@
     "commit": "./node_modules/cz-customizable/standalone.js",
     "prettier:write": "npx prettier --write **/*.{js,jsx,ts,tsx,json} && npx prettier --write *.{js,jsx,ts,tsx,json}",
     "lint": "eslint --ext .tsx --ext .ts src/",
-    "format": "prettier --check ./src"
+    "format": "prettier --check ./src",
+    "storybook": "start-storybook -p 7007",
+    "build-storybook": "build-storybook",
+    "prestorybook": "rnstl"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.10",
